@@ -1,0 +1,9 @@
+full_name_box  = driver.find_element_by_id('full_name')
+full_name_box.send_keys("Greg Smith")
+
+search_button = driver.find_elements_by_id("button-search")[0]
+search_button.click()
+
+# need to use a library to parse this lxml or BS4
+html = driver.page_source
+print(html)
