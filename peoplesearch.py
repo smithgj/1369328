@@ -4,7 +4,28 @@ import async_timeout
 import os
 from selenium import webdriver
 import time
+import logging
 
+def read_file(input_file):
+    with open(input_file) as f:
+        input_data = f.readlines()
+        # remove whitespace characters like `\n` at the end of each line
+        input_data = [x.strip() for x in input_data]
+        return input_data
+
+def strip_blank_lines(input_list):
+    input_no_blank_lines = []
+    for x in input_list:
+        if x != '':
+            input_no_blank_lines.append(x)
+    return input_no_blank_lines
+
+def remove_comment_lines (input_list):
+    clean_input_data = []
+    for x in input_list:
+        if x[0:1] != '#':
+            clean_input_data.append(x)
+    return clean_input_data
 
 async def my_coroutine(x):
     driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
@@ -22,6 +43,8 @@ async def my_coroutine(x):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='bitcoin_value.log', level=DEBUG,format='%(asctime)s - %(levelname)s - %(message)s')
+#   logging.disable(logging.DEBUG)
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
     start = time.time()
     loop = asyncio.get_event_loop()
