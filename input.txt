@@ -1,0 +1,28 @@
+#if using multiple values for a search field you need to separate the values by comma
+# SSN format:123-45-6789
+# SSN format:123-45-6789,111-22-3456
+# DOB format: mm/dd/yyy
+# DOB format: 01/17/1959,08/20/1964
+# Full_Name: John Doe, Fred Flinstone
+# Phone_Number: 612-555-1212
+# states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
+#          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+#          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+#          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+#          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+# text fields
+Full_Name:gpops,frank, teddy 
+Email:smithgj66@hotmail.com
+Street:123 Main Street
+City:St. Paul
+Zip:55125,55108
+Maiden_Last_Name:
+Phone_Number:612-555-1212
+Social_Security_Number:123-45-6789
+
+
+# dropdown fields
+Approximate_Age:35
+State:MN
+Date_of_Birth:01/17/1959
