@@ -1,4 +1,3 @@
-<<<<<<< .merge_file_a14904
 #if using multiple values for a search field you need to separate the values by comma
 # SSN format:123-45-6789
 # SSN format:123-45-6789,111-22-3456
