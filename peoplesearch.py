@@ -90,8 +90,6 @@ def validate_data(inputs):
     # if data is bad, log it, output message to console, and skip that value
 
     # email is inputs[4]
-    import us_state_abbreviations
-
     remove_me = []
     for i in range(0, len(inputs[4])):
         if '@' not in inputs[4][i]:
