@@ -5,6 +5,8 @@ import os
 from selenium import webdriver
 import time
 import logging
+import us_state_abbreviations
+
 
 def get_input_data (input_file):
     inputs= []
@@ -83,6 +85,151 @@ def get_input_data (input_file):
     logging.debug(inputs)
     return(inputs)
 
+def validate_data(inputs):
+    # data validation on email, zip, phone number, ssn, age, state, dob
+    # if data is bad, log it, output message to console, and skip that value
+
+    # email is inputs[4]
+    import us_state_abbreviations
+
+    remove_me = []
+    for i in range(0, len(inputs[4])):
+        if '@' not in inputs[4][i]:
+            remove_me.append(inputs[4][i])
+            print('Invalid email address: ' + inputs[4][i])
+    for j in range(0, len(remove_me)):
+        inputs[4].remove(remove_me[j])
+
+    # zip_code is inputs[7]
+    remove_me = []
+    for i in range(0, len(inputs[7])):
+        if (len(inputs[7][i]) != 5):
+            remove_me.append(inputs[7][i])
+
+    for k in range(0, len(remove_me)):
+        print('Invalid zip code: ' + remove_me[k])
+        inputs[7].remove(remove_me[k])
+
+    remove_me = []
+    for i in range(0, len(inputs[7])):
+        for j in range(0, len(inputs[7][i])):
+            if not (inputs[7][i][j].isdigit()):
+                remove_me.append(inputs[7][i])
+
+    for k in range(0, len(remove_me)):
+        print('Invalid zip code: ' + remove_me[k])
+        inputs[7].remove(remove_me[k])
+
+
+        # phone is inputs[9]
+    remove_me = []
+
+    for i in range(0, len(inputs[9])):
+        if (len(inputs[9][i]) != 12):
+            remove_me.append(inputs[9][i])
+
+    for k in range(0, len(remove_me)):
+        print('Invalid phone: ' + remove_me[k])
+        inputs[9].remove(remove_me[k])
+
+    remove_me = []
+    for i in range(0, len(inputs[9])):
+        phone_bool = True
+        for j in range(0, len(inputs[9][i])):
+            if j in (0, 1, 2, 4, 5, 6, 8, 9, 10, 11):
+                if not (inputs[9][i][j].isdigit()):
+                    phone_bool = False
+            if j in (3, 7):
+                if inputs[9][i][j] != '-':
+                    phone_bool = False
+        if phone_bool == False:
+            remove_me.append(inputs[9][i])
+            print('Invalid phone: ' + inputs[9][i])
+    for k in range(0, len(remove_me)):
+        inputs[9].remove(remove_me[k])
+
+
+        # ssn is inputs[10]
+    remove_me = []
+
+    for i in range(0, len(inputs[10])):
+        if (len(inputs[10][i]) != 11):
+            remove_me.append(inputs[10][i])
+
+    for k in range(0, len(remove_me)):
+        print('Invalid SSN: ' + remove_me[k])
+        inputs[10].remove(remove_me[k])
+
+    remove_me = []
+    for i in range(0, len(inputs[10])):
+        ssn_bool = True
+        for j in range(0, len(inputs[10][i])):
+            if j in (0, 1, 2, 4, 5, 7, 8, 9, 10):
+                if not (inputs[10][i][j].isdigit()):
+                    ssn_bool = False
+            if j in (3, 7):
+                if inputs[10][i][j] != '-':
+                    ssn = False
+        if ssn_bool == False:
+            remove_me.append(inputs[10][i])
+            print('Invalid SSN: ' + inputs[10][i])
+    for k in range(0, len(remove_me)):
+        inputs[10].remove(remove_me[k])
+
+
+        # age is inputs[11]
+    remove_me = []
+    for i in range(0, len(inputs[11])):
+        if (int(inputs[11][i]) < 18) or (int(inputs[11][i]) > 95):
+            print('Invalid age: ' + inputs[11][i])
+            remove_me.append(inputs[11][i])
+
+    for k in range(0, len(remove_me)):
+        inputs[11].remove(remove_me[k])
+
+        # state is inputs[12]
+    remove_me = []
+    for i in range(0, len(inputs[12])):
+        if ((inputs[12][i]).upper() not in us_state_abbreviations.states):
+            print('Invalid state: ' + inputs[12][i])
+            remove_me.append(inputs[12][i])
+
+    for k in range(0, len(remove_me)):
+        inputs[12].remove(remove_me[k])
+
+        # dob is inputs[13]
+    remove_me = []
+    for i in range(0, len(inputs[13])):
+        if ((inputs[13][i]).count('/') != 2):
+            remove_me.append(inputs[13][i])
+
+    for k in range(0, len(remove_me)):
+        print('Invalid date: ' + remove_me[k])
+        inputs[13].remove(remove_me[k])
+
+    remove_me = []
+    for i in range(0, len(inputs[13])):
+        dob_bool = True
+        the_date = inputs[13][i].split('/')
+
+        month = the_date[0]
+        day = the_date[1]
+        year = the_date[2]
+        if (int(month) < 1 or int(month) > 12):
+            dob_bool = False
+
+        if (int(day) < 1 or int(day) > 31):
+            dob_bool = False
+
+        if (int(year) < 1900):
+            dob_bool = False
+
+        if dob_bool == False:
+            remove_me.append(inputs[13][i])
+            print('Invalid dob: ' + inputs[13][i])
+    for k in range(0, len(remove_me)):
+        inputs[13].remove(remove_me[k])
+    return(inputs)
 async def my_coroutine(x):
     driver = webdriver.Chrome(webdriver_path)
     driver.get('http://www.findpeoplesearch.com/')
@@ -105,6 +252,7 @@ if __name__ == '__main__':
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
     inputs = get_input_data('C:\\Users\\Greg\\PycharmProjects\\1369328\\input.txt')
+    inputs = validate_data(inputs)
     webdriver_path = inputs[0]
 # read data from input file and get all combos for searching
     start = time.time()

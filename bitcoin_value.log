@@ -104,3 +104,20 @@
 2017-10-22 11:55:31,123 - DEBUG - Finished Request
 2017-10-22 11:55:43,044 - DEBUG - DELETE http://127.0.0.1:56801/session/11794e3b09b0c771d81b46b04b6d5f6f/window {"sessionId": "11794e3b09b0c771d81b46b04b6d5f6f"}
 2017-10-22 11:55:43,294 - DEBUG - Finished Request
+2017-10-22 13:08:21,133 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail', 'Street=123 Main Street', 'City=St. Paul', 'Zip=55125,a1234,55108,1234567', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234', 'Social_Security_Number=123-45-6789', 'Approximate_Age=35', 'State=MN', 'Date_of_Birth=01/17/1959']
+2017-10-22 13:08:21,133 - DEBUG - 14
+2017-10-22 13:08:21,133 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail'], ['123 Main Street'], ['St. Paul'], ['55125', 'a1234', '55108', '1234567'], [''], ['612-555-1212', '1234561212', 'a12-234-1234'], ['123-45-6789'], ['35'], ['MN'], ['01/17/1959']]
+2017-10-22 13:08:21,133 - DEBUG - Using selector: SelectSelector
+2017-10-22 13:08:23,165 - DEBUG - POST http://127.0.0.1:49958/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 13:08:26,911 - DEBUG - Finished Request
+2017-10-22 13:08:26,912 - DEBUG - POST http://127.0.0.1:49958/session/a731c8444b87b0552c043fc20525d399/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "a731c8444b87b0552c043fc20525d399"}
+2017-10-22 13:08:29,987 - DEBUG - Finished Request
+2017-10-22 13:08:29,987 - DEBUG - POST http://127.0.0.1:49958/session/a731c8444b87b0552c043fc20525d399/elements {"using": "id", "value": "more-btn", "sessionId": "a731c8444b87b0552c043fc20525d399"}
+2017-10-22 13:08:30,040 - DEBUG - Finished Request
+2017-10-22 13:08:30,040 - DEBUG - POST http://127.0.0.1:49958/session/a731c8444b87b0552c043fc20525d399/element/0.5927581376595388-1/click {"id": "0.5927581376595388-1", "sessionId": "a731c8444b87b0552c043fc20525d399"}
+2017-10-22 13:08:30,354 - DEBUG - Finished Request
+2017-10-22 13:08:30,355 - DEBUG - DELETE http://127.0.0.1:49958/session/a731c8444b87b0552c043fc20525d399/window {"sessionId": "a731c8444b87b0552c043fc20525d399"}
+2017-10-22 13:08:32,674 - DEBUG - Finished Request
+2017-10-22 13:08:34,689 - DEBUG - POST http://127.0.0.1:50014/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 13:08:37,470 - DEBUG - Finished Request
+2017-10-22 13:08:37,471 - DEBUG - POST http://127.0.0.1:50014/session/23bbcfb784b5cbb51535745310cf30e1/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "23bbcfb784b5cbb51535745310cf30e1"}
