@@ -46,6 +46,8 @@ if __name__ == '__main__':
     logging.basicConfig(filename='bitcoin_value.log', level=DEBUG,format='%(asctime)s - %(levelname)s - %(message)s')
 #   logging.disable(logging.DEBUG)
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
+# load webdriver_loc, out_file, page_timeout into global variables
+# read data from input file and get all combos for searching
     start = time.time()
     loop = asyncio.get_event_loop()
     tasks = []
