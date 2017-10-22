@@ -25,12 +25,12 @@ out_file=C:\Users\Greg\PycharmProjects\1369328\output.csv
 page_timeout=20
 # text fields
 Full_Name=gpops,frank, teddy
-Email=smithgj66@hotmail.com
+Email=smithgj66@hotmail.com,junkemail
 Street=123 Main Street
 City=St. Paul
-Zip=55125,55108
+Zip=55125,a1234,55108,1234567
 Maiden_Last_Name=
-Phone_Number=612-555-1212
+Phone_Number=612-555-1212,1234561212,a12-234-1234
 Social_Security_Number=123-45-6789
 
 # dropdown fields
