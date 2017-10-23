@@ -6,6 +6,7 @@ from selenium import webdriver
 import time
 import logging
 import us_state_abbreviations
+import itertools
 
 
 def get_input_data (input_file):
@@ -228,6 +229,15 @@ def validate_data(inputs):
     for k in range(0, len(remove_me)):
         inputs[13].remove(remove_me[k])
     return(inputs)
+
+def get_input_scenarios(inputs):
+    from pprint import pprint
+    scenarios = [','.join(str(y) for y in x) for x in itertools.product(inputs[3],
+        inputs[4], inputs[5], inputs[6], inputs[7], inputs[8], inputs[9], inputs[10],
+        inputs[11], inputs[12],inputs[13])]
+    pprint(scenarios)
+    return(scenarios)
+
 async def my_coroutine(x):
     driver = webdriver.Chrome(webdriver_path)
     driver.get('http://www.findpeoplesearch.com/')
@@ -253,6 +263,8 @@ if __name__ == '__main__':
     inputs = validate_data(inputs)
     webdriver_path = inputs[0]
 # read data from input file and get all combos for searching
+    scenarios = []
+    scenarios = get_input_scenarios(inputs)
     start = time.time()
     loop = asyncio.get_event_loop()
     tasks = []

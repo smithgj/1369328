@@ -3,7 +3,7 @@
 # SSN format:123-45-6789,111-22-3456
 # DOB format: mm/dd/yyy
 # DOB format: 01/17/1959,08/20/1964
-# Full_Name: John Doe, Fred Flinstone
+# Full_Name: John Doe,Fred Flinstone
 # Phone_Number: 612-555-1212
 # states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
 #          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
