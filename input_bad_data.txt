@@ -12,7 +12,7 @@
 #          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 #########################################################################
 # only change these if directed to
-webdriver_loc=chromedriver.exe
+webdriver_loc=C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
 #
 #   change the values below as required
 #
@@ -24,18 +24,18 @@ out_file=C:\Users\Greg\PycharmProjects\1369328\output.csv
 # page_timeout - how long to wait (in seconds) for a result before giving up
 page_timeout=20
 # text fields
-Full_Name=Greg Smith
-Email=smithgj66@hotmail.com
-Street=
-City=
-Zip=55125
+Full_Name=gpops,frank, teddy
+Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com
+Street=123 Main Street,5323 Gun Club Road
+City=St. Paul,Altamont
+Zip=55125,a1234,55108,1234567,55107
 Maiden_Last_Name=
-Phone_Number=
-Social_Security_Number=
+Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643
+Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234
 # dropdown fields
-Approximate_Age=
-State=
-Date_of_Birth=
+Approximate_Age=35,15,47,99,25
+State=MN,NYC,ca,123,PA
+Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960
 # this is the maximum nuber of browsers to use
 max_browsers=50
 # logging level for troubleshooting

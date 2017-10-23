@@ -65,3 +65,167 @@
 2017-10-22 21:55:17,650 - DEBUG - ['01/17/1959', '12/03/1960']
 2017-10-22 21:55:17,697 - INFO - There are 5184 scenarios to be run
 2017-10-22 21:55:17,697 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50
+2017-10-22 22:21:46,024 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 22:21:46,024 - DEBUG - 16
+2017-10-22 22:21:46,024 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 22:21:46,024 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 22:21:46,024 - INFO - page timeout = 20
+2017-10-22 22:21:46,024 - INFO - max browsers = 50
+2017-10-22 22:21:46,024 - INFO - log level = DEBUG
+2017-10-22 22:21:46,024 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960'], '50', 'DEBUG']
+2017-10-22 22:21:46,024 - INFO - Invalid email address: junkemail
+2017-10-22 22:21:46,024 - INFO - Invalid zip code: 1234567
+2017-10-22 22:21:46,024 - INFO - Invalid zip code: a1234
+2017-10-22 22:21:46,024 - INFO - Invalid phone: 1234561212
+2017-10-22 22:21:46,024 - INFO - Invalid phone: a12-234-1234
+2017-10-22 22:21:46,024 - INFO - Invalid SSN: 123-1-2121
+2017-10-22 22:21:46,024 - INFO - Invalid SSN: 1b3-44-5678
+2017-10-22 22:21:46,024 - INFO - Invalid age: 15
+2017-10-22 22:21:46,024 - INFO - Invalid age: 99
+2017-10-22 22:21:46,024 - INFO - Invalid state: NYC
+2017-10-22 22:21:46,024 - INFO - Invalid state: 123
+2017-10-22 22:21:46,024 - INFO - Invalid dob: 00/23/1969
+2017-10-22 22:21:46,024 - INFO - Invalid dob: 12/32/1975
+2017-10-22 22:21:46,024 - INFO - Invalid dob: 12/03/1880
+2017-10-22 22:21:46,024 - DEBUG - input 3
+2017-10-22 22:21:46,024 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 22:21:46,024 - DEBUG - input 4
+2017-10-22 22:21:46,024 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 22:21:46,024 - DEBUG - input 5
+2017-10-22 22:21:46,024 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 22:21:46,024 - DEBUG - input 6
+2017-10-22 22:21:46,024 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 22:21:46,024 - DEBUG - input 7
+2017-10-22 22:21:46,024 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 22:21:46,024 - DEBUG - input 8
+2017-10-22 22:21:46,024 - DEBUG - ['']
+2017-10-22 22:21:46,024 - DEBUG - input 9
+2017-10-22 22:21:46,024 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 22:21:46,024 - DEBUG - input 10
+2017-10-22 22:21:46,024 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 22:21:46,024 - DEBUG - input 11
+2017-10-22 22:21:46,024 - DEBUG - ['35', '47', '25']
+2017-10-22 22:21:46,024 - DEBUG - input 12
+2017-10-22 22:21:46,024 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 22:21:46,024 - DEBUG - input 13
+2017-10-22 22:21:46,024 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 22:21:46,055 - INFO - There are 5184 scenarios to be run
+2017-10-22 22:21:46,055 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50
+2017-10-22 22:23:45,934 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=Greg Smith', 'Email=smithgj66@hotmail.com', 'Street=', 'City=', 'Zip=55125', 'Maiden_Last_Name=', 'Phone_Number=', 'Social_Security_Number=', 'Approximate_Age=', 'State=', 'Date_of_Birth=', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 22:23:45,934 - DEBUG - 16
+2017-10-22 22:23:45,934 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 22:23:45,934 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 22:23:45,934 - INFO - page timeout = 20
+2017-10-22 22:23:45,934 - INFO - max browsers = 50
+2017-10-22 22:23:45,934 - INFO - log level = DEBUG
+2017-10-22 22:23:45,934 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['Greg Smith'], ['smithgj66@hotmail.com'], [''], [''], ['55125'], [''], [''], [''], [''], [''], [''], '50', 'DEBUG']
+2017-10-22 22:23:45,934 - INFO - Invalid phone: 
+2017-10-22 22:23:45,934 - INFO - Invalid SSN: 
+2017-10-22 22:24:45,095 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=Greg Smith', 'Email=smithgj66@hotmail.com', 'Street=', 'City=', 'Zip=55125', 'Maiden_Last_Name=', 'Phone_Number=', 'Social_Security_Number=', 'Approximate_Age=45', 'State=', 'Date_of_Birth=', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 22:24:45,095 - DEBUG - 16
+2017-10-22 22:24:45,095 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 22:24:45,095 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 22:24:45,095 - INFO - page timeout = 20
+2017-10-22 22:24:45,095 - INFO - max browsers = 50
+2017-10-22 22:24:45,095 - INFO - log level = DEBUG
+2017-10-22 22:24:45,095 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['Greg Smith'], ['smithgj66@hotmail.com'], [''], [''], ['55125'], [''], [''], [''], ['45'], [''], [''], '50', 'DEBUG']
+2017-10-22 22:24:45,095 - INFO - Invalid phone: 
+2017-10-22 22:24:45,095 - INFO - Invalid SSN: 
+2017-10-22 22:24:45,095 - INFO - Invalid state: 
+2017-10-22 22:24:45,095 - INFO - Invalid date: 
+2017-10-22 22:24:45,095 - DEBUG - input 3
+2017-10-22 22:24:45,095 - DEBUG - ['Greg Smith']
+2017-10-22 22:24:45,095 - DEBUG - input 4
+2017-10-22 22:24:45,095 - DEBUG - ['smithgj66@hotmail.com']
+2017-10-22 22:24:45,095 - DEBUG - input 5
+2017-10-22 22:24:45,095 - DEBUG - ['']
+2017-10-22 22:24:45,095 - DEBUG - input 6
+2017-10-22 22:24:45,095 - DEBUG - ['']
+2017-10-22 22:24:45,095 - DEBUG - input 7
+2017-10-22 22:24:45,095 - DEBUG - ['55125']
+2017-10-22 22:24:45,095 - DEBUG - input 8
+2017-10-22 22:24:45,095 - DEBUG - ['']
+2017-10-22 22:24:45,095 - DEBUG - input 9
+2017-10-22 22:24:45,095 - DEBUG - []
+2017-10-22 22:24:45,110 - DEBUG - input 10
+2017-10-22 22:24:45,110 - DEBUG - []
+2017-10-22 22:24:45,110 - DEBUG - input 11
+2017-10-22 22:24:45,110 - DEBUG - ['45']
+2017-10-22 22:24:45,110 - DEBUG - input 12
+2017-10-22 22:24:45,110 - DEBUG - []
+2017-10-22 22:24:45,110 - DEBUG - input 13
+2017-10-22 22:24:45,110 - DEBUG - []
+2017-10-22 22:24:45,110 - INFO - There are 0 scenarios to be run
+2017-10-22 22:24:45,110 - DEBUG - Using selector: SelectSelector
+2017-10-22 22:25:24,839 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=Greg Smith', 'Email=smithgj66@hotmail.com', 'Street=', 'City=', 'Zip=55125', 'Maiden_Last_Name=', 'Phone_Number=', 'Social_Security_Number=', 'Approximate_Age=45', 'State=', 'Date_of_Birth=', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 22:25:24,839 - DEBUG - 16
+2017-10-22 22:25:24,839 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 22:25:24,839 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 22:25:24,839 - INFO - page timeout = 20
+2017-10-22 22:25:24,839 - INFO - max browsers = 50
+2017-10-22 22:25:24,839 - INFO - log level = DEBUG
+2017-10-22 22:25:24,839 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['Greg Smith'], ['smithgj66@hotmail.com'], [''], [''], ['55125'], [''], [''], [''], ['45'], [''], [''], '50', 'DEBUG']
+2017-10-22 22:25:24,839 - INFO - Invalid phone: 
+2017-10-22 22:25:24,839 - INFO - Invalid SSN: 
+2017-10-22 22:25:24,839 - INFO - Invalid state: 
+2017-10-22 22:25:24,839 - INFO - Invalid date: 
+2017-10-22 22:25:24,839 - DEBUG - input 3
+2017-10-22 22:25:24,839 - DEBUG - ['Greg Smith']
+2017-10-22 22:25:24,839 - DEBUG - input 4
+2017-10-22 22:25:24,839 - DEBUG - ['smithgj66@hotmail.com']
+2017-10-22 22:25:24,839 - DEBUG - input 5
+2017-10-22 22:25:24,839 - DEBUG - ['']
+2017-10-22 22:25:24,839 - DEBUG - input 6
+2017-10-22 22:25:24,839 - DEBUG - ['']
+2017-10-22 22:25:24,839 - DEBUG - input 7
+2017-10-22 22:25:24,839 - DEBUG - ['55125']
+2017-10-22 22:25:24,839 - DEBUG - input 8
+2017-10-22 22:25:24,839 - DEBUG - ['']
+2017-10-22 22:25:24,839 - DEBUG - input 9
+2017-10-22 22:25:24,839 - DEBUG - []
+2017-10-22 22:25:24,839 - DEBUG - input 10
+2017-10-22 22:25:24,839 - DEBUG - []
+2017-10-22 22:25:24,839 - DEBUG - input 11
+2017-10-22 22:25:24,839 - DEBUG - ['45']
+2017-10-22 22:25:24,839 - DEBUG - input 12
+2017-10-22 22:25:24,839 - DEBUG - []
+2017-10-22 22:25:24,839 - DEBUG - input 13
+2017-10-22 22:25:24,839 - DEBUG - []
+2017-10-22 22:25:24,839 - INFO - There are 0 scenarios to be run
+2017-10-22 22:25:24,855 - DEBUG - Using selector: SelectSelector
+2017-10-22 22:26:18,779 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=Greg Smith', 'Email=smithgj66@hotmail.com', 'Street=', 'City=', 'Zip=55125', 'Maiden_Last_Name=', 'Phone_Number=', 'Social_Security_Number=', 'Approximate_Age=45', 'State=', 'Date_of_Birth=', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 22:26:18,779 - DEBUG - 16
+2017-10-22 22:26:18,779 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 22:26:18,779 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 22:26:18,779 - INFO - page timeout = 20
+2017-10-22 22:26:18,779 - INFO - max browsers = 50
+2017-10-22 22:26:18,779 - INFO - log level = DEBUG
+2017-10-22 22:26:18,779 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['Greg Smith'], ['smithgj66@hotmail.com'], [''], [''], ['55125'], [''], [''], [''], ['45'], [''], [''], '50', 'DEBUG']
+2017-10-22 22:26:18,779 - INFO - Invalid phone: 
+2017-10-22 22:26:18,779 - INFO - Invalid SSN: 
+2017-10-22 22:26:18,779 - INFO - Invalid state: 
+2017-10-22 22:26:18,779 - INFO - Invalid date: 
+2017-10-22 22:26:18,779 - DEBUG - input 3
+2017-10-22 22:26:18,779 - DEBUG - ['Greg Smith']
+2017-10-22 22:26:18,779 - DEBUG - input 4
+2017-10-22 22:26:18,779 - DEBUG - ['smithgj66@hotmail.com']
+2017-10-22 22:26:18,779 - DEBUG - input 5
+2017-10-22 22:26:18,779 - DEBUG - ['']
+2017-10-22 22:26:18,779 - DEBUG - input 6
+2017-10-22 22:26:18,779 - DEBUG - ['']
+2017-10-22 22:26:18,779 - DEBUG - input 7
+2017-10-22 22:26:18,779 - DEBUG - ['55125']
+2017-10-22 22:26:18,779 - DEBUG - input 8
+2017-10-22 22:26:18,779 - DEBUG - ['']
+2017-10-22 22:26:18,779 - DEBUG - input 9
+2017-10-22 22:26:18,779 - DEBUG - []
+2017-10-22 22:26:18,779 - DEBUG - input 10
+2017-10-22 22:26:18,779 - DEBUG - []
+2017-10-22 22:26:18,779 - DEBUG - input 11
+2017-10-22 22:26:18,779 - DEBUG - ['45']
+2017-10-22 22:26:18,779 - DEBUG - input 12
+2017-10-22 22:26:18,779 - DEBUG - []
+2017-10-22 22:26:18,779 - DEBUG - input 13
+2017-10-22 22:26:18,779 - DEBUG - []
+2017-10-22 22:26:18,779 - INFO - There are 0 scenarios to be run
+2017-10-22 22:26:18,779 - DEBUG - Using selector: SelectSelector
