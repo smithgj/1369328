@@ -1,42 +1,67 @@
-2017-10-22 21:05:50,288 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960', 'max_browsers=50']
-2017-10-22 21:05:50,288 - DEBUG - 15
-2017-10-22 21:05:50,289 - INFO - C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
-2017-10-22 21:05:50,289 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960'], ['50']]
-2017-10-22 21:05:50,289 - INFO - Invalid email address: junkemail
-2017-10-22 21:05:50,290 - INFO - Invalid zip code: 1234567
-2017-10-22 21:05:50,290 - INFO - Invalid zip code: a1234
-2017-10-22 21:05:50,290 - INFO - Invalid phone: 1234561212
-2017-10-22 21:05:50,290 - INFO - Invalid phone: a12-234-1234
-2017-10-22 21:05:50,290 - INFO - Invalid SSN: 123-1-2121
-2017-10-22 21:05:50,290 - INFO - Invalid SSN: 1b3-44-5678
-2017-10-22 21:05:50,290 - INFO - Invalid age: 15
-2017-10-22 21:05:50,291 - INFO - Invalid age: 99
-2017-10-22 21:05:50,291 - INFO - Invalid state: NYC
-2017-10-22 21:05:50,291 - INFO - Invalid state: 123
-2017-10-22 21:05:50,291 - INFO - Invalid dob: 00/23/1969
-2017-10-22 21:05:50,291 - INFO - Invalid dob: 12/32/1975
-2017-10-22 21:05:50,291 - INFO - Invalid dob: 12/03/1880
-2017-10-22 21:05:50,295 - DEBUG - input 3
-2017-10-22 21:05:50,295 - DEBUG - ['gpops', 'frank', 'teddy']
-2017-10-22 21:05:50,295 - DEBUG - input 4
-2017-10-22 21:05:50,295 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
-2017-10-22 21:05:50,295 - DEBUG - input 5
-2017-10-22 21:05:50,296 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
-2017-10-22 21:05:50,296 - DEBUG - input 6
-2017-10-22 21:05:50,296 - DEBUG - ['St. Paul', 'Altamont']
-2017-10-22 21:05:50,296 - DEBUG - input 7
-2017-10-22 21:05:50,296 - DEBUG - ['55125', '55108', '55107']
-2017-10-22 21:05:50,296 - DEBUG - input 8
-2017-10-22 21:05:50,296 - DEBUG - ['']
-2017-10-22 21:05:50,297 - DEBUG - input 9
-2017-10-22 21:05:50,297 - DEBUG - ['612-555-1212', '651-303-4643']
-2017-10-22 21:05:50,297 - DEBUG - input 10
-2017-10-22 21:05:50,297 - DEBUG - ['123-45-6789', '999-88-1234']
-2017-10-22 21:05:50,297 - DEBUG - input 11
-2017-10-22 21:05:50,297 - DEBUG - ['35', '47', '25']
-2017-10-22 21:05:50,298 - DEBUG - input 12
-2017-10-22 21:05:50,298 - DEBUG - ['MN', 'CA', 'PA']
-2017-10-22 21:05:50,298 - DEBUG - input 13
-2017-10-22 21:05:50,298 - DEBUG - ['01/17/1959', '12/03/1960']
-2017-10-22 21:05:50,329 - INFO - There are 5184 scenarios to be run
-2017-10-22 21:05:50,329 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50
+2017-10-22 21:54:55,107 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 21:54:55,107 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 21:54:55,107 - INFO - page timeout = 20
+2017-10-22 21:54:55,107 - INFO - max browsers = 50
+2017-10-22 21:54:55,107 - INFO - log level = INFO
+2017-10-22 21:54:55,107 - INFO - Invalid email address: junkemail
+2017-10-22 21:54:55,107 - INFO - Invalid zip code: 1234567
+2017-10-22 21:54:55,107 - INFO - Invalid zip code: a1234
+2017-10-22 21:54:55,107 - INFO - Invalid phone: 1234561212
+2017-10-22 21:54:55,107 - INFO - Invalid phone: a12-234-1234
+2017-10-22 21:54:55,107 - INFO - Invalid SSN: 123-1-2121
+2017-10-22 21:54:55,107 - INFO - Invalid SSN: 1b3-44-5678
+2017-10-22 21:54:55,107 - INFO - Invalid age: 15
+2017-10-22 21:54:55,107 - INFO - Invalid age: 99
+2017-10-22 21:54:55,107 - INFO - Invalid state: NYC
+2017-10-22 21:54:55,107 - INFO - Invalid state: 123
+2017-10-22 21:54:55,107 - INFO - Invalid dob: 00/23/1969
+2017-10-22 21:54:55,107 - INFO - Invalid dob: 12/32/1975
+2017-10-22 21:54:55,107 - INFO - Invalid dob: 12/03/1880
+2017-10-22 21:54:55,153 - INFO - There are 5184 scenarios to be run
+2017-10-22 21:54:55,154 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50
+2017-10-22 21:55:17,650 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960', 'max_browsers=50', 'level=DEBUG']
+2017-10-22 21:55:17,650 - DEBUG - 16
+2017-10-22 21:55:17,650 - INFO - webdriver = C:\Users\Greg\PycharmProjects\1369328\chromedriver_win32\chromedriver.exe
+2017-10-22 21:55:17,650 - INFO - Output file = C:\Users\Greg\PycharmProjects\1369328\output10_22_2017.csv
+2017-10-22 21:55:17,650 - INFO - page timeout = 20
+2017-10-22 21:55:17,650 - INFO - max browsers = 50
+2017-10-22 21:55:17,650 - INFO - log level = DEBUG
+2017-10-22 21:55:17,650 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output10_22_2017.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960'], '50', 'DEBUG']
+2017-10-22 21:55:17,650 - INFO - Invalid email address: junkemail
+2017-10-22 21:55:17,650 - INFO - Invalid zip code: 1234567
+2017-10-22 21:55:17,650 - INFO - Invalid zip code: a1234
+2017-10-22 21:55:17,650 - INFO - Invalid phone: 1234561212
+2017-10-22 21:55:17,650 - INFO - Invalid phone: a12-234-1234
+2017-10-22 21:55:17,650 - INFO - Invalid SSN: 123-1-2121
+2017-10-22 21:55:17,650 - INFO - Invalid SSN: 1b3-44-5678
+2017-10-22 21:55:17,650 - INFO - Invalid age: 15
+2017-10-22 21:55:17,650 - INFO - Invalid age: 99
+2017-10-22 21:55:17,650 - INFO - Invalid state: NYC
+2017-10-22 21:55:17,650 - INFO - Invalid state: 123
+2017-10-22 21:55:17,650 - INFO - Invalid dob: 00/23/1969
+2017-10-22 21:55:17,650 - INFO - Invalid dob: 12/32/1975
+2017-10-22 21:55:17,650 - INFO - Invalid dob: 12/03/1880
+2017-10-22 21:55:17,650 - DEBUG - input 3
+2017-10-22 21:55:17,650 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 21:55:17,650 - DEBUG - input 4
+2017-10-22 21:55:17,650 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 21:55:17,650 - DEBUG - input 5
+2017-10-22 21:55:17,650 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 21:55:17,650 - DEBUG - input 6
+2017-10-22 21:55:17,650 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 21:55:17,650 - DEBUG - input 7
+2017-10-22 21:55:17,650 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 21:55:17,650 - DEBUG - input 8
+2017-10-22 21:55:17,650 - DEBUG - ['']
+2017-10-22 21:55:17,650 - DEBUG - input 9
+2017-10-22 21:55:17,650 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 21:55:17,650 - DEBUG - input 10
+2017-10-22 21:55:17,650 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 21:55:17,650 - DEBUG - input 11
+2017-10-22 21:55:17,650 - DEBUG - ['35', '47', '25']
+2017-10-22 21:55:17,650 - DEBUG - input 12
+2017-10-22 21:55:17,650 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 21:55:17,650 - DEBUG - input 13
+2017-10-22 21:55:17,650 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 21:55:17,697 - INFO - There are 5184 scenarios to be run
+2017-10-22 21:55:17,697 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50

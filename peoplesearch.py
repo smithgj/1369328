@@ -10,6 +10,8 @@ import us_state_abbreviations
 import itertools
 import sys
 
+
+
 # get the data from the input file
 # add current date to name of output file
 def get_input_data (input_file):
@@ -30,8 +32,9 @@ def get_input_data (input_file):
     logging.debug(clean_input_data)
     logging.debug(len(clean_input_data))
 
-    webdriver = (clean_input_data[0][clean_input_data[0].find('=') + 1:]).split(',')
-    webdriver = webdriver[0].strip()
+    webdriver = (clean_input_data[0][clean_input_data[0].find('=') + 1:])
+    webdriver = webdriver.strip()
+    logging.info('webdriver = ' + webdriver)
     inputs.append(webdriver)
 
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
@@ -39,11 +42,12 @@ def get_input_data (input_file):
     parts = out_file.split('.')
     date_string = arrow.now().format('MM_DD_YYYY')
     out_file = parts[0] + date_string + '.' + parts[1]
-    logging.info(out_file)
+    logging.info('Output file = ' + out_file)
     inputs.append(out_file)
 
-    page_timeout = (clean_input_data[2][clean_input_data[2].find('=') + 1:]).split(',')
-    page_timeout = page_timeout[0].strip()
+    page_timeout = (clean_input_data[2][clean_input_data[2].find('=') + 1:])
+    page_timeout = page_timeout.strip()
+    logging.info('page timeout = ' + page_timeout)
     inputs.append(page_timeout)
 
     full_name = (clean_input_data[3][clean_input_data[3].find('=') + 1:]).split(',')
@@ -90,9 +94,15 @@ def get_input_data (input_file):
     dob = [x.strip() for x in dob]
     inputs.append(dob)
 
-    max_browsers = (clean_input_data[14][clean_input_data[14].find('=') + 1:]).split(',')
-    max_browsers = [x.strip() for x in max_browsers]
+    max_browsers = (clean_input_data[14][clean_input_data[14].find('=') + 1:])
+    max_browsers = max_browsers.strip()
+    logging.info('max browsers = ' + max_browsers)
     inputs.append(max_browsers)
+
+    level = (clean_input_data[15][clean_input_data[15].find('=') + 1:])
+    level = level.strip()
+    logging.info('log level = ' + level)
+    inputs.append(level)
 
     logging.debug(inputs)
     return(inputs)
@@ -250,13 +260,22 @@ async def my_coroutine(x):
 if __name__ == '__main__':
     FORMAT='%(asctime)s - %(levelname)s - %(message)s'
     FILENAME =  'peoplesearch'+ arrow.now().format('MM_DD_YYYY') + '.log'
-    logging.basicConfig(format=FORMAT, filename=FILENAME, level=logging.DEBUG)
+    log_level = 'DEBUG'
+    with open('input.txt') as f:
+        input_data = f.readlines()
+    for x in input_data:
+        if x.startswith('level='):
+            log_level = x[x.find('=') + 1:]
+            log_level = log_level.strip()
+    numeric_level = getattr(logging, log_level)
+    logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
 #   logging.disable(logging.DEBUG)
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
-    inputs = get_input_data('C:\\Users\\Greg\\PycharmProjects\\1369328\\input.txt')
+    inputs = get_input_data('input.txt')
     webdriver_path = inputs[0]
-    max_browsers = int(inputs[14][0])
+    page_timeout = inputs[2]
+    max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
 
 # read data from input file and get all combos for searching
