@@ -7,6 +7,7 @@ import time
 import logging
 import us_state_abbreviations
 import itertools
+import sys
 
 
 def get_input_data (input_file):
@@ -95,7 +96,7 @@ def validate_data(inputs):
     for i in range(0, len(inputs[4])):
         if '@' not in inputs[4][i]:
             remove_me.append(inputs[4][i])
-            print('Invalid email address: ' + inputs[4][i])
+            logging.info('Invalid email address: ' + inputs[4][i])
     for j in range(0, len(remove_me)):
         inputs[4].remove(remove_me[j])
 
@@ -104,33 +105,26 @@ def validate_data(inputs):
     for i in range(0, len(inputs[7])):
         if (len(inputs[7][i]) != 5):
             remove_me.append(inputs[7][i])
-
     for k in range(0, len(remove_me)):
-        print('Invalid zip code: ' + remove_me[k])
+        logging.info('Invalid zip code: ' + remove_me[k])
         inputs[7].remove(remove_me[k])
-
     remove_me = []
     for i in range(0, len(inputs[7])):
         for j in range(0, len(inputs[7][i])):
             if not (inputs[7][i][j].isdigit()):
                 remove_me.append(inputs[7][i])
-
     for k in range(0, len(remove_me)):
-        print('Invalid zip code: ' + remove_me[k])
+        logging.info('Invalid zip code: ' + remove_me[k])
         inputs[7].remove(remove_me[k])
 
-
-        # phone is inputs[9]
+    # phone is inputs[9]
     remove_me = []
-
     for i in range(0, len(inputs[9])):
         if (len(inputs[9][i]) != 12):
             remove_me.append(inputs[9][i])
-
     for k in range(0, len(remove_me)):
-        print('Invalid phone: ' + remove_me[k])
+        logging.info('Invalid phone: ' + remove_me[k])
         inputs[9].remove(remove_me[k])
-
     remove_me = []
     for i in range(0, len(inputs[9])):
         phone_bool = True
@@ -143,22 +137,18 @@ def validate_data(inputs):
                     phone_bool = False
         if phone_bool == False:
             remove_me.append(inputs[9][i])
-            print('Invalid phone: ' + inputs[9][i])
+            logging.info('Invalid phone: ' + inputs[9][i])
     for k in range(0, len(remove_me)):
         inputs[9].remove(remove_me[k])
 
-
-        # ssn is inputs[10]
+    # ssn is inputs[10]
     remove_me = []
-
     for i in range(0, len(inputs[10])):
         if (len(inputs[10][i]) != 11):
             remove_me.append(inputs[10][i])
-
     for k in range(0, len(remove_me)):
-        print('Invalid SSN: ' + remove_me[k])
+        logging.info('Invalid SSN: ' + remove_me[k])
         inputs[10].remove(remove_me[k])
-
     remove_me = []
     for i in range(0, len(inputs[10])):
         ssn_bool = True
@@ -171,71 +161,65 @@ def validate_data(inputs):
                     ssn = False
         if ssn_bool == False:
             remove_me.append(inputs[10][i])
-            print('Invalid SSN: ' + inputs[10][i])
+            logging.info('Invalid SSN: ' + inputs[10][i])
     for k in range(0, len(remove_me)):
         inputs[10].remove(remove_me[k])
 
-
-        # age is inputs[11]
+    # age is inputs[11]
     remove_me = []
     for i in range(0, len(inputs[11])):
         if (int(inputs[11][i]) < 18) or (int(inputs[11][i]) > 95):
-            print('Invalid age: ' + inputs[11][i])
+            logging.info('Invalid age: ' + inputs[11][i])
             remove_me.append(inputs[11][i])
-
     for k in range(0, len(remove_me)):
         inputs[11].remove(remove_me[k])
 
-        # state is inputs[12]
+    # state is inputs[12]
     remove_me = []
+    inputs[12] = [element.upper() for element in inputs[12]]
     for i in range(0, len(inputs[12])):
-        if ((inputs[12][i]).upper() not in us_state_abbreviations.states):
-            print('Invalid state: ' + inputs[12][i])
+        if (inputs[12][i] not in us_state_abbreviations.states):
+            logging.info('Invalid state: ' + inputs[12][i])
             remove_me.append(inputs[12][i])
-
     for k in range(0, len(remove_me)):
         inputs[12].remove(remove_me[k])
 
-        # dob is inputs[13]
+    # dob is inputs[13]
     remove_me = []
     for i in range(0, len(inputs[13])):
         if ((inputs[13][i]).count('/') != 2):
             remove_me.append(inputs[13][i])
-
     for k in range(0, len(remove_me)):
-        print('Invalid date: ' + remove_me[k])
+        logging.info('Invalid date: ' + remove_me[k])
         inputs[13].remove(remove_me[k])
-
     remove_me = []
     for i in range(0, len(inputs[13])):
         dob_bool = True
         the_date = inputs[13][i].split('/')
-
         month = the_date[0]
         day = the_date[1]
         year = the_date[2]
         if (int(month) < 1 or int(month) > 12):
             dob_bool = False
-
         if (int(day) < 1 or int(day) > 31):
             dob_bool = False
-
         if (int(year) < 1900):
             dob_bool = False
-
         if dob_bool == False:
             remove_me.append(inputs[13][i])
-            print('Invalid dob: ' + inputs[13][i])
+            logging.info('Invalid dob: ' + inputs[13][i])
     for k in range(0, len(remove_me)):
         inputs[13].remove(remove_me[k])
     return(inputs)
 
 def get_input_scenarios(inputs):
     from pprint import pprint
+    for i in range(3,14):
+        logging.debug('input ' + str(i))
+        logging.debug(inputs[i])
     scenarios = [','.join(str(y) for y in x) for x in itertools.product(inputs[3],
         inputs[4], inputs[5], inputs[6], inputs[7], inputs[8], inputs[9], inputs[10],
         inputs[11], inputs[12],inputs[13])]
-    pprint(scenarios)
     return(scenarios)
 
 async def my_coroutine(x):
@@ -260,16 +244,26 @@ if __name__ == '__main__':
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
     inputs = get_input_data('C:\\Users\\Greg\\PycharmProjects\\1369328\\input.txt')
-    inputs = validate_data(inputs)
     webdriver_path = inputs[0]
+    clean_inputs = validate_data(inputs)
+
 # read data from input file and get all combos for searching
     scenarios = []
-    scenarios = get_input_scenarios(inputs)
+    scenarios = get_input_scenarios(clean_inputs)
+    num_scenarios = len(scenarios)
+    logging.info('There are ' + str(len(scenarios)) + ' scenarios to be run')
+    print('There are ' + str(len(scenarios)) + ' scenarios to be run')
+    if len(scenarios) > 50:
+        logging.info('There are too many scenarios to run, please adjust input.txt file '
+                     'so that the maximum number of scenarios is less than or equal to 50')
+        print('There are too many scenarios to run, please adjust input.txt file '
+                     'so that the maximum number of scenarios is less than or equal to 50')
+        sys.exit()
     start = time.time()
     loop = asyncio.get_event_loop()
     tasks = []
     url = 'http://www.findpeoplesearch.com/'
-    for i in range(3):
-        task = asyncio.ensure_future(my_coroutine(i))
-        tasks.append(task)
-    loop.run_until_complete(asyncio.wait(tasks))
+#    for i in range(3):
+#        task = asyncio.ensure_future(my_coroutine(i))
+#        tasks.append(task)
+#    loop.run_until_complete(asyncio.wait(tasks))

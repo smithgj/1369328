@@ -121,3 +121,256 @@
 2017-10-22 13:08:34,689 - DEBUG - POST http://127.0.0.1:50014/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
 2017-10-22 13:08:37,470 - DEBUG - Finished Request
 2017-10-22 13:08:37,471 - DEBUG - POST http://127.0.0.1:50014/session/23bbcfb784b5cbb51535745310cf30e1/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "23bbcfb784b5cbb51535745310cf30e1"}
+2017-10-22 19:41:08,124 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemailgreg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:41:08,124 - DEBUG - 14
+2017-10-22 19:41:08,124 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemailgreg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:41:10,480 - DEBUG - Using selector: SelectSelector
+2017-10-22 19:41:13,232 - DEBUG - POST http://127.0.0.1:50771/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:41:15,612 - DEBUG - Finished Request
+2017-10-22 19:41:15,612 - DEBUG - POST http://127.0.0.1:50771/session/cb676cd52d1301c5485a670c4a0f6f61/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "cb676cd52d1301c5485a670c4a0f6f61"}
+2017-10-22 19:41:20,977 - DEBUG - Finished Request
+2017-10-22 19:41:20,978 - DEBUG - POST http://127.0.0.1:50771/session/cb676cd52d1301c5485a670c4a0f6f61/elements {"using": "id", "value": "more-btn", "sessionId": "cb676cd52d1301c5485a670c4a0f6f61"}
+2017-10-22 19:41:21,035 - DEBUG - Finished Request
+2017-10-22 19:41:21,035 - DEBUG - POST http://127.0.0.1:50771/session/cb676cd52d1301c5485a670c4a0f6f61/element/0.9581277882945456-1/click {"id": "0.9581277882945456-1", "sessionId": "cb676cd52d1301c5485a670c4a0f6f61"}
+2017-10-22 19:41:21,198 - DEBUG - Finished Request
+2017-10-22 19:41:21,198 - DEBUG - DELETE http://127.0.0.1:50771/session/cb676cd52d1301c5485a670c4a0f6f61/window {"sessionId": "cb676cd52d1301c5485a670c4a0f6f61"}
+2017-10-22 19:41:21,490 - DEBUG - Finished Request
+2017-10-22 19:41:23,505 - DEBUG - POST http://127.0.0.1:50817/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:41:25,878 - DEBUG - Finished Request
+2017-10-22 19:41:25,879 - DEBUG - POST http://127.0.0.1:50817/session/1d965ce2422ff14d46aa780a6be70832/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "1d965ce2422ff14d46aa780a6be70832"}
+2017-10-22 19:41:30,896 - DEBUG - Finished Request
+2017-10-22 19:41:30,896 - DEBUG - POST http://127.0.0.1:50817/session/1d965ce2422ff14d46aa780a6be70832/elements {"using": "id", "value": "more-btn", "sessionId": "1d965ce2422ff14d46aa780a6be70832"}
+2017-10-22 19:41:30,939 - DEBUG - Finished Request
+2017-10-22 19:41:30,939 - DEBUG - POST http://127.0.0.1:50817/session/1d965ce2422ff14d46aa780a6be70832/element/0.01988812130607176-1/click {"id": "0.01988812130607176-1", "sessionId": "1d965ce2422ff14d46aa780a6be70832"}
+2017-10-22 19:41:31,137 - DEBUG - Finished Request
+2017-10-22 19:41:33,158 - DEBUG - POST http://127.0.0.1:50858/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:41:36,022 - DEBUG - Finished Request
+2017-10-22 19:41:36,023 - DEBUG - POST http://127.0.0.1:50858/session/ffa6b041364015c37f52913f138ecf48/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "ffa6b041364015c37f52913f138ecf48"}
+2017-10-22 19:41:39,571 - DEBUG - Finished Request
+2017-10-22 19:41:39,572 - DEBUG - POST http://127.0.0.1:50858/session/ffa6b041364015c37f52913f138ecf48/elements {"using": "id", "value": "more-btn", "sessionId": "ffa6b041364015c37f52913f138ecf48"}
+2017-10-22 19:41:39,606 - DEBUG - Finished Request
+2017-10-22 19:41:39,606 - DEBUG - POST http://127.0.0.1:50858/session/ffa6b041364015c37f52913f138ecf48/element/0.05975884338764148-1/click {"id": "0.05975884338764148-1", "sessionId": "ffa6b041364015c37f52913f138ecf48"}
+2017-10-22 19:41:39,792 - DEBUG - Finished Request
+2017-10-22 19:41:39,793 - DEBUG - DELETE http://127.0.0.1:50858/session/ffa6b041364015c37f52913f138ecf48/window {"sessionId": "ffa6b041364015c37f52913f138ecf48"}
+2017-10-22 19:41:41,937 - DEBUG - Finished Request
+2017-10-22 19:41:51,148 - DEBUG - DELETE http://127.0.0.1:50817/session/1d965ce2422ff14d46aa780a6be70832/window {"sessionId": "1d965ce2422ff14d46aa780a6be70832"}
+2017-10-22 19:41:51,506 - DEBUG - Finished Request
+2017-10-22 19:44:34,412 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemailgreg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:44:34,412 - DEBUG - 14
+2017-10-22 19:44:34,412 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemailgreg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:44:36,628 - DEBUG - Using selector: SelectSelector
+2017-10-22 19:44:38,654 - DEBUG - POST http://127.0.0.1:51294/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:44:41,447 - DEBUG - Finished Request
+2017-10-22 19:44:41,447 - DEBUG - POST http://127.0.0.1:51294/session/017591c0264de1ffb6597dc68759e7c0/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "017591c0264de1ffb6597dc68759e7c0"}
+2017-10-22 19:44:45,973 - DEBUG - Finished Request
+2017-10-22 19:44:45,974 - DEBUG - POST http://127.0.0.1:51294/session/017591c0264de1ffb6597dc68759e7c0/elements {"using": "id", "value": "more-btn", "sessionId": "017591c0264de1ffb6597dc68759e7c0"}
+2017-10-22 19:44:46,004 - DEBUG - Finished Request
+2017-10-22 19:44:46,004 - DEBUG - POST http://127.0.0.1:51294/session/017591c0264de1ffb6597dc68759e7c0/element/0.15755174568771912-1/click {"id": "0.15755174568771912-1", "sessionId": "017591c0264de1ffb6597dc68759e7c0"}
+2017-10-22 19:44:46,183 - DEBUG - Finished Request
+2017-10-22 19:44:46,183 - DEBUG - DELETE http://127.0.0.1:51294/session/017591c0264de1ffb6597dc68759e7c0/window {"sessionId": "017591c0264de1ffb6597dc68759e7c0"}
+2017-10-22 19:44:46,471 - DEBUG - Finished Request
+2017-10-22 19:44:48,480 - DEBUG - POST http://127.0.0.1:51338/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:44:52,846 - DEBUG - Finished Request
+2017-10-22 19:44:52,846 - DEBUG - POST http://127.0.0.1:51338/session/617ecc9c96367bea28d155e8b4443cd0/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "617ecc9c96367bea28d155e8b4443cd0"}
+2017-10-22 19:44:56,363 - DEBUG - Finished Request
+2017-10-22 19:44:56,364 - DEBUG - POST http://127.0.0.1:51338/session/617ecc9c96367bea28d155e8b4443cd0/elements {"using": "id", "value": "more-btn", "sessionId": "617ecc9c96367bea28d155e8b4443cd0"}
+2017-10-22 19:44:56,422 - DEBUG - Finished Request
+2017-10-22 19:44:56,422 - DEBUG - POST http://127.0.0.1:51338/session/617ecc9c96367bea28d155e8b4443cd0/element/0.6276994261249471-1/click {"id": "0.6276994261249471-1", "sessionId": "617ecc9c96367bea28d155e8b4443cd0"}
+2017-10-22 19:44:56,614 - DEBUG - Finished Request
+2017-10-22 19:44:58,638 - DEBUG - POST http://127.0.0.1:51380/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome"}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "chromeOptions": {"extensions": [], "args": []}}}
+2017-10-22 19:45:01,243 - DEBUG - Finished Request
+2017-10-22 19:45:01,243 - DEBUG - POST http://127.0.0.1:51380/session/381f26adfcce34f78045b32a918ef4e7/url {"url": "http://www.findpeoplesearch.com/", "sessionId": "381f26adfcce34f78045b32a918ef4e7"}
+2017-10-22 19:45:04,341 - DEBUG - Finished Request
+2017-10-22 19:45:04,342 - DEBUG - POST http://127.0.0.1:51380/session/381f26adfcce34f78045b32a918ef4e7/elements {"using": "id", "value": "more-btn", "sessionId": "381f26adfcce34f78045b32a918ef4e7"}
+2017-10-22 19:45:04,395 - DEBUG - Finished Request
+2017-10-22 19:45:04,396 - DEBUG - POST http://127.0.0.1:51380/session/381f26adfcce34f78045b32a918ef4e7/element/0.8989124159916482-1/click {"id": "0.8989124159916482-1", "sessionId": "381f26adfcce34f78045b32a918ef4e7"}
+2017-10-22 19:45:04,792 - DEBUG - Finished Request
+2017-10-22 19:45:04,792 - DEBUG - DELETE http://127.0.0.1:51380/session/381f26adfcce34f78045b32a918ef4e7/window {"sessionId": "381f26adfcce34f78045b32a918ef4e7"}
+2017-10-22 19:45:05,166 - DEBUG - Finished Request
+2017-10-22 19:45:16,620 - DEBUG - DELETE http://127.0.0.1:51338/session/617ecc9c96367bea28d155e8b4443cd0/window {"sessionId": "617ecc9c96367bea28d155e8b4443cd0"}
+2017-10-22 19:45:16,881 - DEBUG - Finished Request
+2017-10-22 19:47:09,817 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemailgreg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:47:09,817 - DEBUG - 14
+2017-10-22 19:47:09,817 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemailgreg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:48:31,811 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemailgreg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:48:31,811 - DEBUG - 14
+2017-10-22 19:48:31,811 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemailgreg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:48:34,149 - DEBUG - Using selector: SelectSelector
+2017-10-22 19:49:29,283 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemailgreg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:49:29,283 - DEBUG - 14
+2017-10-22 19:49:29,283 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemailgreg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:49:31,495 - DEBUG - Using selector: SelectSelector
+2017-10-22 19:55:00,610 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55108', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 19:55:00,610 - DEBUG - 14
+2017-10-22 19:55:00,610 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55108'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 19:55:02,862 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:06:08,600 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:06:08,600 - DEBUG - 14
+2017-10-22 20:06:08,600 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:06:10,953 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:08:46,740 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:08:46,740 - DEBUG - 14
+2017-10-22 20:08:46,740 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:08:49,567 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:10:52,091 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:10:52,091 - DEBUG - 14
+2017-10-22 20:10:52,091 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:10:59,133 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:12:42,489 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:12:42,505 - DEBUG - 14
+2017-10-22 20:12:42,505 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:12:42,646 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:15:55,511 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:15:55,511 - DEBUG - 14
+2017-10-22 20:15:55,511 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:16:49,183 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:16:49,184 - DEBUG - 14
+2017-10-22 20:16:49,184 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:17:04,885 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:17:04,885 - DEBUG - 14
+2017-10-22 20:17:04,885 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:18:53,874 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:18:53,874 - DEBUG - 14
+2017-10-22 20:18:53,874 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:20:05,253 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:20:05,253 - DEBUG - 14
+2017-10-22 20:20:05,253 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:21:06,895 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:21:06,895 - DEBUG - 14
+2017-10-22 20:21:06,895 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:22:55,435 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:22:55,435 - DEBUG - 14
+2017-10-22 20:22:55,435 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:22:55,435 - DEBUG - input 3
+2017-10-22 20:22:55,435 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 20:22:55,435 - DEBUG - input 4
+2017-10-22 20:22:55,435 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 20:22:55,435 - DEBUG - input 5
+2017-10-22 20:22:55,435 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 20:22:55,435 - DEBUG - input 6
+2017-10-22 20:22:55,435 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 20:22:55,435 - DEBUG - input 7
+2017-10-22 20:22:55,435 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 20:22:55,435 - DEBUG - input 8
+2017-10-22 20:22:55,435 - DEBUG - ['']
+2017-10-22 20:22:55,435 - DEBUG - input 9
+2017-10-22 20:22:55,435 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 20:22:55,435 - DEBUG - input 10
+2017-10-22 20:22:55,435 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 20:22:55,435 - DEBUG - input 11
+2017-10-22 20:22:55,435 - DEBUG - ['35', '47', '25']
+2017-10-22 20:22:55,435 - DEBUG - input 12
+2017-10-22 20:22:55,435 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 20:22:55,435 - DEBUG - input 13
+2017-10-22 20:22:55,435 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 20:22:55,467 - INFO - There are 5184 scenarios to be run
+2017-10-22 20:22:55,467 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:26:49,169 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:26:49,169 - DEBUG - 14
+2017-10-22 20:26:49,169 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:26:49,169 - DEBUG - input 3
+2017-10-22 20:26:49,169 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 20:26:49,169 - DEBUG - input 4
+2017-10-22 20:26:49,169 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 20:26:49,169 - DEBUG - input 5
+2017-10-22 20:26:49,169 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 20:26:49,169 - DEBUG - input 6
+2017-10-22 20:26:49,169 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 20:26:49,169 - DEBUG - input 7
+2017-10-22 20:26:49,169 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 20:26:49,169 - DEBUG - input 8
+2017-10-22 20:26:49,169 - DEBUG - ['']
+2017-10-22 20:26:49,169 - DEBUG - input 9
+2017-10-22 20:26:49,169 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 20:26:49,169 - DEBUG - input 10
+2017-10-22 20:26:49,169 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 20:26:49,169 - DEBUG - input 11
+2017-10-22 20:26:49,169 - DEBUG - ['35', '47', '25']
+2017-10-22 20:26:49,169 - DEBUG - input 12
+2017-10-22 20:26:49,169 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 20:26:49,169 - DEBUG - input 13
+2017-10-22 20:26:49,169 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 20:26:49,201 - INFO - There are 5184 scenarios to be run
+2017-10-22 20:26:49,201 - INFO - There are too many scenarios to run, please adjust input.txt file
+2017-10-22 20:26:49,201 - DEBUG - Using selector: SelectSelector
+2017-10-22 20:28:43,221 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:28:43,221 - DEBUG - 14
+2017-10-22 20:28:43,221 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:28:43,221 - DEBUG - input 3
+2017-10-22 20:28:43,221 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 20:28:43,221 - DEBUG - input 4
+2017-10-22 20:28:43,221 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 20:28:43,221 - DEBUG - input 5
+2017-10-22 20:28:43,221 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 20:28:43,221 - DEBUG - input 6
+2017-10-22 20:28:43,221 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 20:28:43,221 - DEBUG - input 7
+2017-10-22 20:28:43,221 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 20:28:43,236 - DEBUG - input 8
+2017-10-22 20:28:43,236 - DEBUG - ['']
+2017-10-22 20:28:43,236 - DEBUG - input 9
+2017-10-22 20:28:43,236 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 20:28:43,236 - DEBUG - input 10
+2017-10-22 20:28:43,236 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 20:28:43,236 - DEBUG - input 11
+2017-10-22 20:28:43,236 - DEBUG - ['35', '47', '25']
+2017-10-22 20:28:43,236 - DEBUG - input 12
+2017-10-22 20:28:43,236 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 20:28:43,236 - DEBUG - input 13
+2017-10-22 20:28:43,236 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 20:28:43,268 - INFO - There are 5184 scenarios to be run
+2017-10-22 20:28:43,268 - INFO - There are too many scenarios to run, please adjust input.txt file
+2017-10-22 20:30:05,583 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:30:05,583 - DEBUG - 14
+2017-10-22 20:30:05,583 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:30:05,583 - DEBUG - input 3
+2017-10-22 20:30:05,583 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 20:30:05,583 - DEBUG - input 4
+2017-10-22 20:30:05,583 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 20:30:05,583 - DEBUG - input 5
+2017-10-22 20:30:05,583 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 20:30:05,583 - DEBUG - input 6
+2017-10-22 20:30:05,583 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 20:30:05,583 - DEBUG - input 7
+2017-10-22 20:30:05,583 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 20:30:05,583 - DEBUG - input 8
+2017-10-22 20:30:05,583 - DEBUG - ['']
+2017-10-22 20:30:05,583 - DEBUG - input 9
+2017-10-22 20:30:05,583 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 20:30:05,583 - DEBUG - input 10
+2017-10-22 20:30:05,583 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 20:30:05,583 - DEBUG - input 11
+2017-10-22 20:30:05,583 - DEBUG - ['35', '47', '25']
+2017-10-22 20:30:05,583 - DEBUG - input 12
+2017-10-22 20:30:05,583 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 20:30:05,583 - DEBUG - input 13
+2017-10-22 20:30:05,583 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 20:30:05,614 - INFO - There are 5184 scenarios to be run
+2017-10-22 20:30:05,614 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or eaqual to 50
+2017-10-22 20:30:24,362 - DEBUG - ['webdriver_loc=C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'out_file=C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', 'page_timeout=20', 'Full_Name=gpops,frank, teddy', 'Email=smithgj66@hotmail.com,junkemail,greg.smith@merrillcorp.com', 'Street=123 Main Street,5323 Gun Club Road', 'City=St. Paul,Altamont', 'Zip=55125,a1234,55108,1234567,55107', 'Maiden_Last_Name=', 'Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643', 'Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234', 'Approximate_Age=35,15,47,99,25', 'State=MN,NYC,ca,123,PA', 'Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960']
+2017-10-22 20:30:24,362 - DEBUG - 14
+2017-10-22 20:30:24,362 - DEBUG - ['C:\\Users\\Greg\\PycharmProjects\\1369328\\chromedriver_win32\\chromedriver.exe', 'C:\\Users\\Greg\\PycharmProjects\\1369328\\output.csv', '20', ['gpops', 'frank', 'teddy'], ['smithgj66@hotmail.com', 'junkemail', 'greg.smith@merrillcorp.com'], ['123 Main Street', '5323 Gun Club Road'], ['St. Paul', 'Altamont'], ['55125', 'a1234', '55108', '1234567', '55107'], [''], ['612-555-1212', '1234561212', 'a12-234-1234', '651-303-4643'], ['123-45-6789', '1b3-44-5678', '123-1-2121', '999-88-1234'], ['35', '15', '47', '99', '25'], ['MN', 'NYC', 'ca', '123', 'PA'], ['01/17/1959', '00/23/1969', '12/32/1975', '12/03/1880', '12/03/1960']]
+2017-10-22 20:30:24,362 - DEBUG - input 3
+2017-10-22 20:30:24,362 - DEBUG - ['gpops', 'frank', 'teddy']
+2017-10-22 20:30:24,362 - DEBUG - input 4
+2017-10-22 20:30:24,362 - DEBUG - ['smithgj66@hotmail.com', 'greg.smith@merrillcorp.com']
+2017-10-22 20:30:24,362 - DEBUG - input 5
+2017-10-22 20:30:24,362 - DEBUG - ['123 Main Street', '5323 Gun Club Road']
+2017-10-22 20:30:24,362 - DEBUG - input 6
+2017-10-22 20:30:24,362 - DEBUG - ['St. Paul', 'Altamont']
+2017-10-22 20:30:24,362 - DEBUG - input 7
+2017-10-22 20:30:24,362 - DEBUG - ['55125', '55108', '55107']
+2017-10-22 20:30:24,362 - DEBUG - input 8
+2017-10-22 20:30:24,362 - DEBUG - ['']
+2017-10-22 20:30:24,362 - DEBUG - input 9
+2017-10-22 20:30:24,362 - DEBUG - ['612-555-1212', '651-303-4643']
+2017-10-22 20:30:24,362 - DEBUG - input 10
+2017-10-22 20:30:24,362 - DEBUG - ['123-45-6789', '999-88-1234']
+2017-10-22 20:30:24,362 - DEBUG - input 11
+2017-10-22 20:30:24,362 - DEBUG - ['35', '47', '25']
+2017-10-22 20:30:24,362 - DEBUG - input 12
+2017-10-22 20:30:24,362 - DEBUG - ['MN', 'CA', 'PA']
+2017-10-22 20:30:24,362 - DEBUG - input 13
+2017-10-22 20:30:24,362 - DEBUG - ['01/17/1959', '12/03/1960']
+2017-10-22 20:30:24,394 - INFO - There are 5184 scenarios to be run
+2017-10-22 20:30:24,394 - INFO - There are too many scenarios to run, please adjust input.txt file so that the maximum number of scenarios is less than or equal to 50
