@@ -3,13 +3,15 @@ import asyncio
 import async_timeout
 import os
 from selenium import webdriver
+import arrow
 import time
 import logging
 import us_state_abbreviations
 import itertools
 import sys
 
-
+# get the data from the input file
+# add current date to name of output file
 def get_input_data (input_file):
     inputs= []
     with open(input_file) as f:
@@ -34,6 +36,10 @@ def get_input_data (input_file):
 
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
     out_file = out_file[0].strip()
+    parts = out_file.split('.')
+    date_string = arrow.now().format('MM_DD_YYYY')
+    out_file = parts[0] + date_string + '.' + parts[1]
+    logging.info(out_file)
     inputs.append(out_file)
 
     page_timeout = (clean_input_data[2][clean_input_data[2].find('=') + 1:]).split(',')
@@ -83,6 +89,10 @@ def get_input_data (input_file):
     dob = (clean_input_data[13][clean_input_data[13].find('=') + 1:]).split(',')
     dob = [x.strip() for x in dob]
     inputs.append(dob)
+
+    max_browsers = (clean_input_data[14][clean_input_data[14].find('=') + 1:]).split(',')
+    max_browsers = [x.strip() for x in max_browsers]
+    inputs.append(max_browsers)
 
     logging.debug(inputs)
     return(inputs)
@@ -239,12 +249,14 @@ async def my_coroutine(x):
 
 if __name__ == '__main__':
     FORMAT='%(asctime)s - %(levelname)s - %(message)s'
-    logging.basicConfig(format=FORMAT, filename='bitcoin_value.log', level=logging.DEBUG)
+    FILENAME =  'peoplesearch'+ arrow.now().format('MM_DD_YYYY') + '.log'
+    logging.basicConfig(format=FORMAT, filename=FILENAME, level=logging.DEBUG)
 #   logging.disable(logging.DEBUG)
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
     inputs = get_input_data('C:\\Users\\Greg\\PycharmProjects\\1369328\\input.txt')
     webdriver_path = inputs[0]
+    max_browsers = int(inputs[14][0])
     clean_inputs = validate_data(inputs)
 
 # read data from input file and get all combos for searching
@@ -253,11 +265,11 @@ if __name__ == '__main__':
     num_scenarios = len(scenarios)
     logging.info('There are ' + str(len(scenarios)) + ' scenarios to be run')
     print('There are ' + str(len(scenarios)) + ' scenarios to be run')
-    if len(scenarios) > 50:
+    if len(scenarios) > max_browsers:
         logging.info('There are too many scenarios to run, please adjust input.txt file '
-                     'so that the maximum number of scenarios is less than or equal to 50')
+                     'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         print('There are too many scenarios to run, please adjust input.txt file '
-                     'so that the maximum number of scenarios is less than or equal to 50')
+                     'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         sys.exit()
     start = time.time()
     loop = asyncio.get_event_loop()

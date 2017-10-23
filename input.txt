@@ -32,10 +32,11 @@ Zip=55125,a1234,55108,1234567,55107
 Maiden_Last_Name=
 Phone_Number=612-555-1212,1234561212,a12-234-1234,651-303-4643
 Social_Security_Number=123-45-6789,1b3-44-5678,123-1-2121,999-88-1234
-
 # dropdown fields
 Approximate_Age=35,15,47,99,25
 State=MN,NYC,ca,123,PA
 Date_of_Birth=01/17/1959,00/23/1969,12/32/1975,12/03/1880,12/03/1960
+# this is the maximum nuber of browsers to use
+max_browsers=50
 
 	
