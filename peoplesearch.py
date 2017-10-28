@@ -9,6 +9,7 @@ import logging
 import us_state_abbreviations
 import itertools
 import sys
+from pprint import pprint
 
 
 
@@ -112,128 +113,145 @@ def validate_data(inputs):
     # if data is bad, log it, output message to console, and skip that value
 
     # email is inputs[4]
-    remove_me = []
-    for i in range(0, len(inputs[4])):
-        if '@' not in inputs[4][i]:
-            remove_me.append(inputs[4][i])
-            logging.info('Invalid email address: ' + inputs[4][i])
-    for j in range(0, len(remove_me)):
-        inputs[4].remove(remove_me[j])
+    if len(inputs[4]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[4])):
+            if '@' not in inputs[4][i]:
+                remove_me.append(inputs[4][i])
+                logging.info('Invalid email address: ' + inputs[4][i])
+        for j in range(0, len(remove_me)):
+            inputs[4].remove(remove_me[j])
 
     # zip_code is inputs[7]
-    remove_me = []
-    for i in range(0, len(inputs[7])):
-        if (len(inputs[7][i]) != 5):
-            remove_me.append(inputs[7][i])
-    for k in range(0, len(remove_me)):
-        logging.info('Invalid zip code: ' + remove_me[k])
-        inputs[7].remove(remove_me[k])
-    remove_me = []
-    for i in range(0, len(inputs[7])):
-        for j in range(0, len(inputs[7][i])):
-            if not (inputs[7][i][j].isdigit()):
+    if len(inputs[7]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[7])):
+            if (len(inputs[7][i]) != 5):
                 remove_me.append(inputs[7][i])
-    for k in range(0, len(remove_me)):
-        logging.info('Invalid zip code: ' + remove_me[k])
-        inputs[7].remove(remove_me[k])
+        for k in range(0, len(remove_me)):
+            logging.info('Invalid zip code: ' + remove_me[k])
+            inputs[7].remove(remove_me[k])
+        remove_me = []
+        for i in range(0, len(inputs[7])):
+            for j in range(0, len(inputs[7][i])):
+                if not (inputs[7][i][j].isdigit()):
+                    remove_me.append(inputs[7][i])
+        for k in range(0, len(remove_me)):
+            logging.info('Invalid zip code: ' + remove_me[k])
+            inputs[7].remove(remove_me[k])
 
     # phone is inputs[9]
-    remove_me = []
-    for i in range(0, len(inputs[9])):
-        if (len(inputs[9][i]) != 12):
-            remove_me.append(inputs[9][i])
-    for k in range(0, len(remove_me)):
-        logging.info('Invalid phone: ' + remove_me[k])
-        inputs[9].remove(remove_me[k])
-    remove_me = []
-    for i in range(0, len(inputs[9])):
-        phone_bool = True
-        for j in range(0, len(inputs[9][i])):
-            if j in (0, 1, 2, 4, 5, 6, 8, 9, 10, 11):
-                if not (inputs[9][i][j].isdigit()):
-                    phone_bool = False
-            if j in (3, 7):
-                if inputs[9][i][j] != '-':
-                    phone_bool = False
-        if phone_bool == False:
-            remove_me.append(inputs[9][i])
-            logging.info('Invalid phone: ' + inputs[9][i])
-    for k in range(0, len(remove_me)):
-        inputs[9].remove(remove_me[k])
+    if len(inputs[9]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[9])):
+            if (len(inputs[9][i]) != 12):
+                remove_me.append(inputs[9][i])
+        for k in range(0, len(remove_me)):
+            logging.info('Invalid phone: ' + remove_me[k])
+            inputs[9].remove(remove_me[k])
+        remove_me = []
+        for i in range(0, len(inputs[9])):
+            phone_bool = True
+            for j in range(0, len(inputs[9][i])):
+                if j in (0, 1, 2, 4, 5, 6, 8, 9, 10, 11):
+                    if not (inputs[9][i][j].isdigit()):
+                        phone_bool = False
+                if j in (3, 7):
+                    if inputs[9][i][j] != '-':
+                        phone_bool = False
+            if phone_bool == False:
+                remove_me.append(inputs[9][i])
+                logging.info('Invalid phone: ' + inputs[9][i])
+        for k in range(0, len(remove_me)):
+            inputs[9].remove(remove_me[k])
 
     # ssn is inputs[10]
-    remove_me = []
-    for i in range(0, len(inputs[10])):
-        if (len(inputs[10][i]) != 11):
-            remove_me.append(inputs[10][i])
-    for k in range(0, len(remove_me)):
-        logging.info('Invalid SSN: ' + remove_me[k])
-        inputs[10].remove(remove_me[k])
-    remove_me = []
-    for i in range(0, len(inputs[10])):
-        ssn_bool = True
-        for j in range(0, len(inputs[10][i])):
-            if j in (0, 1, 2, 4, 5, 7, 8, 9, 10):
-                if not (inputs[10][i][j].isdigit()):
-                    ssn_bool = False
-            if j in (3, 7):
-                if inputs[10][i][j] != '-':
-                    ssn = False
-        if ssn_bool == False:
-            remove_me.append(inputs[10][i])
-            logging.info('Invalid SSN: ' + inputs[10][i])
-    for k in range(0, len(remove_me)):
-        inputs[10].remove(remove_me[k])
+    if len(inputs[10]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[10])):
+            if (len(inputs[10][i]) != 11):
+                remove_me.append(inputs[10][i])
+        for k in range(0, len(remove_me)):
+            logging.info('Invalid SSN: ' + remove_me[k])
+            inputs[10].remove(remove_me[k])
+        remove_me = []
+        for i in range(0, len(inputs[10])):
+            ssn_bool = True
+            for j in range(0, len(inputs[10][i])):
+                if j in (0, 1, 2, 4, 5, 7, 8, 9, 10):
+                    if not (inputs[10][i][j].isdigit()):
+                        ssn_bool = False
+                if j in (3, 7):
+                    if inputs[10][i][j] != '-':
+                        ssn = False
+            if ssn_bool == False:
+                remove_me.append(inputs[10][i])
+                logging.info('Invalid SSN: ' + inputs[10][i])
+        for k in range(0, len(remove_me)):
+            inputs[10].remove(remove_me[k])
 
     # age is inputs[11]
-    remove_me = []
-    for i in range(0, len(inputs[11])):
-        if (int(inputs[11][i]) < 18) or (int(inputs[11][i]) > 95):
-            logging.info('Invalid age: ' + inputs[11][i])
-            remove_me.append(inputs[11][i])
-    for k in range(0, len(remove_me)):
-        inputs[11].remove(remove_me[k])
+    if len(inputs[11]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[11])):
+            if (int(inputs[11][i]) < 18) or (int(inputs[11][i]) > 95):
+                logging.info('Invalid age: ' + inputs[11][i])
+                remove_me.append(inputs[11][i])
+        for k in range(0, len(remove_me)):
+            inputs[11].remove(remove_me[k])
 
-    # state is inputs[12]
-    remove_me = []
-    inputs[12] = [element.upper() for element in inputs[12]]
-    for i in range(0, len(inputs[12])):
-        if (inputs[12][i] not in us_state_abbreviations.states):
-            logging.info('Invalid state: ' + inputs[12][i])
-            remove_me.append(inputs[12][i])
-    for k in range(0, len(remove_me)):
-        inputs[12].remove(remove_me[k])
+        # state is inputs[12]
+        remove_me = []
+        inputs[12] = [element.upper() for element in inputs[12]]
+        for i in range(0, len(inputs[12])):
+            if (inputs[12][i] not in us_state_abbreviations.states):
+                logging.info('Invalid state: ' + inputs[12][i])
+                remove_me.append(inputs[12][i])
+        for k in range(0, len(remove_me)):
+            inputs[12].remove(remove_me[k])
 
     # dob is inputs[13]
-    remove_me = []
-    for i in range(0, len(inputs[13])):
-        if ((inputs[13][i]).count('/') != 2):
-            remove_me.append(inputs[13][i])
-    for k in range(0, len(remove_me)):
-        logging.info('Invalid date: ' + remove_me[k])
-        inputs[13].remove(remove_me[k])
-    remove_me = []
-    for i in range(0, len(inputs[13])):
-        dob_bool = True
-        the_date = inputs[13][i].split('/')
-        month = the_date[0]
-        day = the_date[1]
-        year = the_date[2]
-        if (int(month) < 1 or int(month) > 12):
-            dob_bool = False
-        if (int(day) < 1 or int(day) > 31):
-            dob_bool = False
-        if (int(year) < 1900):
-            dob_bool = False
-        if dob_bool == False:
-            remove_me.append(inputs[13][i])
-            logging.info('Invalid dob: ' + inputs[13][i])
-    for k in range(0, len(remove_me)):
-        inputs[13].remove(remove_me[k])
-    return(inputs)
+    if len(inputs[13]) == 1:
+        pass
+    else:
+        remove_me = []
+        for i in range(0, len(inputs[13])):
+            if ((inputs[13][i]).count('/') != 2):
+                remove_me.append(inputs[13][i])
+        for k in range(0, len(remove_me)):
+            logging.info('Invalid date: ' + remove_me[k])
+            inputs[13].remove(remove_me[k])
+        remove_me = []
+        for i in range(0, len(inputs[13])):
+            dob_bool = True
+            the_date = inputs[13][i].split('/')
+            month = the_date[0]
+            day = the_date[1]
+            year = the_date[2]
+            if (int(month) < 1 or int(month) > 12):
+                dob_bool = False
+            if (int(day) < 1 or int(day) > 31):
+                dob_bool = False
+            if (int(year) < 1900):
+                dob_bool = False
+            if dob_bool == False:
+                remove_me.append(inputs[13][i])
+                logging.info('Invalid dob: ' + inputs[13][i])
+        for k in range(0, len(remove_me)):
+            inputs[13].remove(remove_me[k])
+        return(inputs)
 
 def get_input_scenarios(inputs):
-    from pprint import pprint
     for i in range(3,14):
         logging.debug('input ' + str(i))
         logging.debug(inputs[i])
