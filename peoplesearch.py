@@ -3,6 +3,12 @@ import asyncio
 import async_timeout
 import os
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
 import arrow
 import time
 import logging
@@ -10,7 +16,7 @@ import us_state_abbreviations
 import itertools
 import sys
 from pprint import pprint
-
+from bs4 import BeautifulSoup
 
 
 # get the data from the input file
@@ -260,18 +266,169 @@ def get_input_scenarios(inputs):
         inputs[11], inputs[12],inputs[13])]
     return(scenarios)
 
-async def my_coroutine(x):
-#    driver = webdriver.Chrome(webdriver_path)
-#    driver.get('http://www.findpeoplesearch.com/')
+async def my_search(my_scenario, tasknum):
+    driver = webdriver.Chrome(WEBDRIVER_PATH)
+    driver.get(URL)
     # click Expand Form button
     # the [0] is there because find_elements_by_id returns a list
-#    expand_form_button = driver.find_elements_by_id("more-btn")[0]
-#    expand_form_button.click()
-    if (x == 1 ):
-        await asyncio.sleep(5)
-#    driver.close()
-    print('Closing driver ' + str(x))
-    my_data.append(str(x))
+    expand_form_button = driver.find_elements_by_id("more-btn")[0]
+    expand_form_button.click()
+    # <input type="text" name="full_name" id="full_name"
+    driver.wait = WebDriverWait(driver, 10)
+    full_name_tbox = driver.wait.until(EC.presence_of_element_located((By.NAME, "full_name")))
+
+    if (my_scenario[0] != ''):
+        name = driver.find_element_by_id("full_name")
+        name.send_keys(my_scenario[0])
+
+    if (my_scenario[1] != ''):
+        email = driver.find_element_by_name("email")
+        email.send_keys(my_scenario[1])
+
+    if (my_scenario[2] != ''):
+        address = driver.find_element_by_name("address")
+        address.send_keys(my_scenario[2])
+
+    if (my_scenario[3] != ''):
+        city = driver.find_element_by_name("city")
+        city.send_keys(my_scenario[3])
+
+    if (my_scenario[4] != ''):
+        zip = driver.find_element_by_name("zip")
+        zip.send_keys(my_scenario[4])
+
+    if (my_scenario[5] != ''):
+        akas = driver.find_element_by_id("akas")
+        akas.send_keys(my_scenario[5])
+
+    if (my_scenario[6] != ''):
+        phone = driver.find_element_by_id("phone")
+        phone.send_keys(my_scenario[6])
+
+    if (my_scenario[7] != ''):
+        ssn = my_scenario[7].split('-')
+        ssn1 = driver.find_element_by_name("ssn1")
+        ssn1.send_keys(ssn[0])
+        ssn2 = driver.find_element_by_name("ssn2")
+        ssn2.send_keys(ssn[1])
+        ssn3 = driver.find_element_by_name("ssn3")
+        ssn3.send_keys(ssn[2])
+
+    if (my_scenario[8] != ''):
+        age = driver.find_element_by_id("age")
+        age.send_keys(my_scenario[8])
+
+    if (my_scenario[9] != ''):
+        select = Select(driver.find_element_by_name("state"))
+        select.select_by_value(my_scenario[9])
+
+    if (my_scenario[10] != ''):
+        dob = my_scenario[10].split('/')
+        logging.debug(dob[0], dob[1], dob[2])
+        select = Select(driver.find_element_by_name("month"))
+        select.select_by_value(dob[0])
+        select = Select(driver.find_element_by_name("day"))
+        select.select_by_value(dob[1])
+        select = Select(driver.find_element_by_name("year"))
+        select.select_by_value(dob[2])
+
+    # <button type="submit" class="btn btn-success btn-lg" id="button-search" style="width: 75%">Search</button>
+    search_button = driver.find_element_by_id("button-search")
+    search_button.send_keys(Keys.ENTER)
+    # wait for  <div class="alert alert-info col-md-8"><h4>Search Results for...</h4>
+    start_time = time.time()
+    driver.wait = WebDriverWait(driver, 20)
+    page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
+    end_time = time.time()
+    logging.info('Task: ' + str(tasknum) + ' Elapsed time for first page = ' + str(end_time - start_time))
+
+    soup = BeautifulSoup(driver.page_source, "html5lib")
+    soups = []
+    soups.append(soup)
+    more_pages = True
+    while (more_pages):
+        next_page = driver.find_element_by_xpath('//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')
+        next_page.send_keys(Keys.ENTER)
+        start_time = time.time()
+        driver.wait = WebDriverWait(driver, 20)
+        page_loaded = driver.wait.until(
+            EC.presence_of_element_located((By.XPATH, '//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')))
+        end_time = time.time()
+        logging.info('Task: ' + str(tasknum) + 'Elapsed time = ' + str(end_time - start_time))
+        soup = BeautifulSoup(driver.page_source, "html5lib")
+        soups.append(soup)
+        try:
+            last_page = driver.find_element_by_css_selector('li.next-page.disabled')
+            # search-results > div:nth-child(6) > div > nav > ul > li.next-page.disabled
+            more_pages = False
+            break
+        except NoSuchElementException:
+            more_pages = True
+    logging.info('Task: ' + str(tasknum) + '  ' + str(len(soups)) + ' pages scraped')
+
+    # get all col-md-4 from all pages (from each soup in soups)
+    all_cols = []
+    for soup in soups:
+        cols = soup.findAll("div", class_="col-md-4")
+        for i in range(0, len(cols)):
+            all_cols.append(cols[i])
+    logging.debug('Task: ' + str(tasknum) + ' all columns = ' + len(all_cols))
+
+    # for each col-md-4 add the ones with people data to data
+    people = []
+    for i in range(0, len(all_cols)):
+        if (all_cols[i].find('span', class_='data_header') == None):
+            pass
+        else:
+            people.append(all_cols[i])
+        logging.debug('Task: ' + str(tasknum) + ' Number of columns with people data = ' + len(all_cols))
+
+    # todo loop through people[] and get data:
+    for z in range(0, len(people)):
+        one_person = people[z]
+        tags = one_person.findAll('li')
+        data_headers = one_person.findAll('span', class_='data_header')
+        data_header_names = []
+        for i in range(0, len(data_headers)):
+            data_header_names.append(data_headers[i].text.split())
+        logging.debug('Task: ' + str(tasknum) + ' data headers = ')
+        logging.debug(data_header_names)
+        num_of_addresses = 0
+        num_of_phones = 0
+        num_of_emails = 0
+        for i in range(0, len(data_header_names)):
+            if data_header_names[i][1] == 'Street':
+                num_of_addresses = int(data_header_names[i][0])
+            elif data_header_names[i][1] == 'Phone':
+                num_of_phones = int(data_header_names[i][0])
+            elif data_header_names[i][1] == 'Email':
+                num_of_emails = int(data_header_names[i][0])
+
+        logging.info('Task: ' + str(tasknum) +
+            ' Addresses=' + str(num_of_addresses) + '  Phones=' + str(num_of_phones) +
+            '  Emails=' + str(num_of_emails))
+
+        for i in range(0, num_of_addresses):
+            addy_data = str(tags[i])
+            begin = addy_data.find('data-person="') + 13
+            end = addy_data.find('" data-person-address')
+            addy_data_1 = addy_data[begin:end]
+            logging.info('Task: ' + str(tasknum) + addy_data_1)
+
+        for j in range(num_of_addresses, num_of_addresses + num_of_phones):
+            phone_data = str(tags[j])
+            begin = phone_data.find('<b>Phone number: </b>') + 21
+            end = phone_data.find('<br/><b>Company:')
+            phone_data_1 = phone_data[begin:end]
+            logging.info('Task: ' + str(tasknum) + phone_data_1)
+
+        for j in range(num_of_addresses + num_of_phones, num_of_addresses + num_of_phones + num_of_emails):
+            email_data = str(tags[j])
+            begin = email_data.find('<a href="mailto:') + 17
+            end = email_data.find('">')
+            email_data_1 = email_data[begin:end]
+            logging.info('Task: ' + str(tasknum) + email_data_1)
+    x = "output data"
     return (x)
 
 
@@ -292,8 +449,8 @@ if __name__ == '__main__':
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
     inputs = get_input_data('input.txt')
-    webdriver_path = inputs[0]
-    url = 'http://www.findpeoplesearch.com/'
+    WEBDRIVER_PATH = inputs[0]
+    URL = 'http://www.findpeoplesearch.com/'
     page_timeout = inputs[2]
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
@@ -314,8 +471,9 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     tasks = []
     my_data = []
-    for i in range(3):
-        task = asyncio.ensure_future(my_coroutine(i))
+    for i in range(num_scenarios):
+        task = asyncio.ensure_future(my_search(num_scenarios[i], i))
         tasks.append(task)
     loop.run_until_complete(asyncio.wait(tasks))
-    print(my_data)
+    print(tasks[0].result())
+    print(tasks[1].result())
