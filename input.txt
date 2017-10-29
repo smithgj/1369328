@@ -5,7 +5,8 @@
 # DOB format: 01/17/1959,08/20/1964
 # Full_Name: John Doe,Fred Flinstone
 # Phone_Number: 612-555-1212
-# states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
+# states values are (do not use "" when specifying) 
+#          ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
 #          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
 #          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
 #          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
@@ -20,7 +21,7 @@ webdriver_loc=chromedriver.exe
 #
 # output file - date will be merged into name
 # output.csv -->  output08302017.csv
-out_file=C:\Users\Greg\PycharmProjects\1369328\output.csv
+out_file=output.csv
 # page_timeout - how long to wait (in seconds) for a result before giving up
 page_timeout=20
 # text fields
@@ -28,13 +29,13 @@ Full_Name=Greg Smith
 Email=smithgj66@hotmail.com
 Street=
 City=
-Zip=55125
+Zip=55125,12009
 Maiden_Last_Name=
 Phone_Number=
 Social_Security_Number=
 # dropdown fields
 Approximate_Age=
-State=
+State=MN,NY
 Date_of_Birth=
 # this is the maximum nuber of browsers to use
 max_browsers=50

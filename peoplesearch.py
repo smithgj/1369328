@@ -258,6 +258,7 @@ def validate_data(inputs):
         return(inputs)
 
 def get_input_scenarios(inputs):
+    logging.debug(inputs)
     for i in range(3,14):
         logging.debug('input ' + str(i))
         logging.debug(inputs[i])
@@ -447,12 +448,14 @@ if __name__ == '__main__':
 #    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
 # load webdriver_loc, out_file, page_timeout into global variables
     inputs = get_input_data('input.txt')
+    logging.debug('inputs = ')
+    logging.debug(inputs)
     WEBDRIVER_PATH = inputs[0]
     URL = 'http://www.findpeoplesearch.com/'
     page_timeout = inputs[2]
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
-
+    logging.debug('clean_inputs = ' + clean_inputs)
 # read data from input file and get all combos for searching
     scenarios = []
     scenarios = get_input_scenarios(clean_inputs)
