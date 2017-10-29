@@ -372,7 +372,7 @@ async def my_search(my_scenario, tasknum):
         cols = soup.findAll("div", class_="col-md-4")
         for i in range(0, len(cols)):
             all_cols.append(cols[i])
-    logging.debug('Task: ' + str(tasknum) + ' all columns = ' + len(all_cols))
+    logging.debug('Task: ' + str(tasknum) + ' all columns = ' + str(len(all_cols)))
 
     # for each col-md-4 add the ones with people data to data
     people = []
@@ -381,7 +381,7 @@ async def my_search(my_scenario, tasknum):
             pass
         else:
             people.append(all_cols[i])
-        logging.debug('Task: ' + str(tasknum) + ' Number of columns with people data = ' + len(all_cols))
+        logging.debug('Task: ' + str(tasknum) + ' Number of columns with people data = ' + str(len(people)))
 
     # todo loop through people[] and get data:
     for z in range(0, len(people)):
@@ -430,8 +430,6 @@ async def my_search(my_scenario, tasknum):
             logging.info('Task: ' + str(tasknum) + email_data_1)
     x = "output data"
     return (x)
-
-
 
 if __name__ == '__main__':
     FORMAT='%(asctime)s - %(levelname)s - %(message)s'
