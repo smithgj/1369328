@@ -1,7 +1,7 @@
-import aiohttp
+import os
+os.environ['PYTHONASYNCIODEBUG'] = '1'
 import asyncio
 import async_timeout
-import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -117,6 +117,10 @@ def get_input_data (input_file):
 def validate_data(inputs):
     # data validation on email, zip, phone number, ssn, age, state, dob
     # if data is bad, log it, output message to console, and skip that value
+    logging.debug("length of inputs = " + str(len(inputs)))
+    logging.debug(type(inputs))
+    for x in range(0, len(inputs)):
+        logging.debug('input' + str(x) + ' = ' + str((inputs[x])))
 
     # email is inputs[4]
     if len(inputs[4]) == 1:
@@ -255,7 +259,7 @@ def validate_data(inputs):
                 logging.info('Invalid dob: ' + inputs[13][i])
         for k in range(0, len(remove_me)):
             inputs[13].remove(remove_me[k])
-        return(inputs)
+    return(inputs)
 
 def get_input_scenarios(inputs):
     logging.debug(inputs)
@@ -268,6 +272,7 @@ def get_input_scenarios(inputs):
     return(scenarios)
 
 async def my_search(my_scenario, tasknum):
+    logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
     driver = webdriver.Chrome(WEBDRIVER_PATH)
     driver.get(URL)
     # click Expand Form button
@@ -279,6 +284,7 @@ async def my_search(my_scenario, tasknum):
     full_name_tbox = driver.wait.until(EC.presence_of_element_located((By.NAME, "full_name")))
 
     if (my_scenario[0] != ''):
+        logging.debug("Task" + str(tasknum) + '  scenario[0]=' + my_scenario[0])
         name = driver.find_element_by_id("full_name")
         name.send_keys(my_scenario[0])
 
@@ -455,7 +461,7 @@ if __name__ == '__main__':
     page_timeout = inputs[2]
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
-    logging.debug('clean_inputs = ' + clean_inputs)
+    logging.debug('clean_inputs = ' + str(clean_inputs))
 # read data from input file and get all combos for searching
     scenarios = []
     scenarios = get_input_scenarios(clean_inputs)
@@ -468,13 +474,15 @@ if __name__ == '__main__':
         print('There are too many scenarios to run, please adjust input.txt file '
                      'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         sys.exit()
-    start = time.time()
+
     loop = asyncio.get_event_loop()
     tasks = []
     my_data = []
     for i in range(num_scenarios):
-        task = asyncio.ensure_future(my_search(num_scenarios[i], i))
+        task = asyncio.ensure_future(my_search(scenarios[i], i))
         tasks.append(task)
-    loop.run_until_complete(asyncio.wait(tasks))
-    print(tasks[0].result())
-    print(tasks[1].result())
+#    loop.run_until_complete(asyncio.wait(tasks))
+    loop.run_until_complete(asyncio.gather(*tasks))
+
+#    print(tasks[0].result())
+#    print(tasks[1].result())
