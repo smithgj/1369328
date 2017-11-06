@@ -29,13 +29,13 @@ Full_Name=Greg Smith
 Email=smithgj66@hotmail.com
 Street=
 City=
-Zip=
+Zip=55125,12009
 Maiden_Last_Name=
 Phone_Number=
 Social_Security_Number=
 # dropdown fields
 Approximate_Age=
-State=MN
+State=MN,NY
 Date_of_Birth=
 # this is the maximum nuber of browsers to use
 max_browsers=50

@@ -1,7 +1,5 @@
 import os
-os.environ['PYTHONASYNCIODEBUG'] = '1'
-import asyncio
-import async_timeout
+from threading import Thread
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,6 +14,7 @@ import us_state_abbreviations
 import itertools
 import sys
 from pprint import pprint
+from pprint import pformat
 from bs4 import BeautifulSoup
 
 
@@ -266,12 +265,15 @@ def get_input_scenarios(inputs):
     for i in range(3,14):
         logging.debug('input ' + str(i))
         logging.debug(inputs[i])
-    scenarios = [','.join(str(y) for y in x) for x in itertools.product(inputs[3],
+    strs_of_scenarios = [','.join(str(y) for y in x) for x in itertools.product(inputs[3],
         inputs[4], inputs[5], inputs[6], inputs[7], inputs[8], inputs[9], inputs[10],
         inputs[11], inputs[12],inputs[13])]
+    for j in range(len(strs_of_scenarios)):
+        scenarios.append(strs_of_scenarios[j].split(','))
+    logging.debug(pformat(scenarios))
     return(scenarios)
 
-async def my_search(my_scenario, tasknum):
+def my_search(my_scenario, tasknum):
     logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
     driver = webdriver.Chrome(WEBDRIVER_PATH)
     driver.get(URL)
@@ -283,8 +285,8 @@ async def my_search(my_scenario, tasknum):
     driver.wait = WebDriverWait(driver, 10)
     full_name_tbox = driver.wait.until(EC.presence_of_element_located((By.NAME, "full_name")))
 
+
     if (my_scenario[0] != ''):
-        logging.debug("Task" + str(tasknum) + '  scenario[0]=' + my_scenario[0])
         name = driver.find_element_by_id("full_name")
         name.send_keys(my_scenario[0])
 
@@ -347,12 +349,16 @@ async def my_search(my_scenario, tasknum):
     driver.wait = WebDriverWait(driver, 20)
     page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
     end_time = time.time()
-    logging.info('Task: ' + str(tasknum) + ' Elapsed time for first page = ' + str(end_time - start_time))
+    logging.info('Task' + str(tasknum) + ': ' + ' Elapsed time for first page = ' + str(end_time - start_time))
 
     soup = BeautifulSoup(driver.page_source, "html5lib")
     soups = []
     soups.append(soup)
-    more_pages = True
+    try:
+        next_page = driver.find_element_by_xpath('//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')
+        more_pages = True
+    except NoSuchElementException:
+        more_pages = False
     while (more_pages):
         next_page = driver.find_element_by_xpath('//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')
         next_page.send_keys(Keys.ENTER)
@@ -361,7 +367,7 @@ async def my_search(my_scenario, tasknum):
         page_loaded = driver.wait.until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')))
         end_time = time.time()
-        logging.info('Task: ' + str(tasknum) + 'Elapsed time = ' + str(end_time - start_time))
+        logging.info('Task' + str(tasknum) + ': ' + 'Elapsed time = ' + str(end_time - start_time))
         soup = BeautifulSoup(driver.page_source, "html5lib")
         soups.append(soup)
         try:
@@ -371,24 +377,16 @@ async def my_search(my_scenario, tasknum):
             break
         except NoSuchElementException:
             more_pages = True
-    logging.info('Task: ' + str(tasknum) + '  ' + str(len(soups)) + ' pages scraped')
+    logging.info('Task' + str(tasknum) + ': ' + '  ' + str(len(soups)) + ' pages scraped')
 
-    # get all col-md-4 from all pages (from each soup in soups)
-    all_cols = []
-    for soup in soups:
-        cols = soup.findAll("div", class_="col-md-4")
-        for i in range(0, len(cols)):
-            all_cols.append(cols[i])
-    logging.debug('Task: ' + str(tasknum) + ' all columns = ' + str(len(all_cols)))
-
-    # for each col-md-4 add the ones with people data to data
+    # get all "panel panel-primary" from all pages (from each soup in soups)
     people = []
-    for i in range(0, len(all_cols)):
-        if (all_cols[i].find('span', class_='data_header') == None):
-            pass
-        else:
-            people.append(all_cols[i])
-        logging.debug('Task: ' + str(tasknum) + ' Number of columns with people data = ' + str(len(people)))
+    for soup in soups:
+        cols = soup.findAll("div", class_="panel panel-primary")
+        for i in range(0, len(cols)):
+            people.append(cols[i])
+    print('number of persons found = ' + str(len(people)))
+    logging.debug('Task' + str(tasknum) + ': ' + ' Number of persons found = ' + str(len(people)))
 
     # todo loop through people[] and get data:
     for z in range(0, len(people)):
@@ -398,7 +396,7 @@ async def my_search(my_scenario, tasknum):
         data_header_names = []
         for i in range(0, len(data_headers)):
             data_header_names.append(data_headers[i].text.split())
-        logging.debug('Task: ' + str(tasknum) + ' data headers = ')
+        logging.debug('Task' + str(tasknum) + ': ' + ' data headers = ')
         logging.debug(data_header_names)
         num_of_addresses = 0
         num_of_phones = 0
@@ -411,32 +409,36 @@ async def my_search(my_scenario, tasknum):
             elif data_header_names[i][1] == 'Email':
                 num_of_emails = int(data_header_names[i][0])
 
-        logging.info('Task: ' + str(tasknum) +
-            ' Addresses=' + str(num_of_addresses) + '  Phones=' + str(num_of_phones) +
-            '  Emails=' + str(num_of_emails))
-
+        logging.info('Task' + str(tasknum) + ': ' +
+                     ' Addresses=' + str(num_of_addresses) + '  Phones=' + str(num_of_phones) +
+                     '  Emails=' + str(num_of_emails))
+        output =[]
         for i in range(0, num_of_addresses):
             addy_data = str(tags[i])
             begin = addy_data.find('data-person="') + 13
             end = addy_data.find('" data-person-address')
             addy_data_1 = addy_data[begin:end]
-            logging.info('Task: ' + str(tasknum) + addy_data_1)
+            output.append(addy_data_1)
+            logging.info('Task' + str(tasknum) + ': ' + addy_data_1)
 
         for j in range(num_of_addresses, num_of_addresses + num_of_phones):
             phone_data = str(tags[j])
             begin = phone_data.find('<b>Phone number: </b>') + 21
             end = phone_data.find('<br/><b>Company:')
             phone_data_1 = phone_data[begin:end]
-            logging.info('Task: ' + str(tasknum) + phone_data_1)
+            output.append(phone_data_1)
+            logging.info('Task' + str(tasknum) + ': ' + phone_data_1)
 
         for j in range(num_of_addresses + num_of_phones, num_of_addresses + num_of_phones + num_of_emails):
             email_data = str(tags[j])
-            begin = email_data.find('<a href="mailto:') + 17
+            begin = email_data.find('<a href="mailto:') + 16
             end = email_data.find('">')
             email_data_1 = email_data[begin:end]
-            logging.info('Task: ' + str(tasknum) + email_data_1)
-    x = "output data"
-    return (x)
+            output.append(email_data_1)
+            logging.info('Task' + str(tasknum) + ': ' + email_data_1)
+
+        my_data[tasknum] = output
+        driver.quit()
 
 if __name__ == '__main__':
     FORMAT='%(asctime)s - %(levelname)s - %(message)s'
@@ -475,14 +477,21 @@ if __name__ == '__main__':
                      'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         sys.exit()
 
-    loop = asyncio.get_event_loop()
-    tasks = []
+
     my_data = []
     for i in range(num_scenarios):
-        task = asyncio.ensure_future(my_search(scenarios[i], i))
-        tasks.append(task)
-#    loop.run_until_complete(asyncio.wait(tasks))
-    loop.run_until_complete(asyncio.gather(*tasks))
+        my_data.append(None)
+        logging.debug(scenarios[i])
+        logging.debug(type(scenarios[i]))
+    logging.debug('data = ' + str(my_data))
 
-#    print(tasks[0].result())
-#    print(tasks[1].result())
+
+    for j in range(num_scenarios):
+        t = Thread(target=my_search(scenarios[j],j))
+        t.start()
+
+    while None in my_data:
+        time.sleep(1)
+
+    pprint(my_data)
+    print('Run completed')
