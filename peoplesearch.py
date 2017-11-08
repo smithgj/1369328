@@ -354,28 +354,32 @@ def my_search(my_scenario, tasknum):
     soup = BeautifulSoup(driver.page_source, "html5lib")
     soups = []
     soups.append(soup)
-    try:
-        next_page = driver.find_element_by_xpath('//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')
-        more_pages = True
-    except NoSuchElementException:
-        more_pages = False
+    more_pages = True
     while (more_pages):
-        next_page = driver.find_element_by_xpath('//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')
-        next_page.send_keys(Keys.ENTER)
+        try:
+            next_page = driver.find_element_by_css_selector(
+                '#search-results > div:nth-child(6) > div > nav > ul > li.next-page > a')
+            logging.debug('Task' + str(tasknum) + ': ' + '  ' + 'next page link found')
+        except NoSuchElementException:
+            more_pages = False
+            break
         start_time = time.time()
-        driver.wait = WebDriverWait(driver, 20)
-        page_loaded = driver.wait.until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="search-results"]/div[4]/div/nav/ul/li[5]/a')))
+        next_page.send_keys(Keys.ENTER)
+        driver.wait = WebDriverWait(driver, 30)
+        page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
         end_time = time.time()
-        logging.info('Task' + str(tasknum) + ': ' + 'Elapsed time = ' + str(end_time - start_time))
+        logging.info('Task' + str(tasknum) + ': ' + '  ' + 'Elapsed time = ' + str(end_time - start_time))
         soup = BeautifulSoup(driver.page_source, "html5lib")
         soups.append(soup)
         try:
-            last_page = driver.find_element_by_css_selector('li.next-page.disabled')
+            last_page = driver.find_element_by_css_selector(
+                '#search-results > div:nth-child(6) > div > nav > ul > li.next-page.disabled > a')
             # search-results > div:nth-child(6) > div > nav > ul > li.next-page.disabled
             more_pages = False
+            logging.debug('Task' + str(tasknum) + ': ' + '  ' + 'last page found')
             break
         except NoSuchElementException:
+            logging.debug('Task' + str(tasknum) + ': ' + '  ' + 'more pages found')
             more_pages = True
     logging.info('Task' + str(tasknum) + ': ' + '  ' + str(len(soups)) + ' pages scraped')
 

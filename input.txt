@@ -26,7 +26,7 @@ out_file=output.csv
 page_timeout=20
 # text fields
 Full_Name=Greg Smith
-Email=smithgj66@hotmail.com
+Email=
 Street=
 City=
 Zip=
