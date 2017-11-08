@@ -489,13 +489,15 @@ if __name__ == '__main__':
         logging.debug(type(scenarios[i]))
     logging.debug('data = ' + str(my_data))
 
-
+    logging.info('Threading started')
+    print('Threading started')
     for j in range(num_scenarios):
-        t = Thread(target=my_search(scenarios[j],j))
+        t = Thread(target=my_search, args=(scenarios[j],j,))
         t.start()
-
+        logging.info("Thread " + str(j) + ' started')
+        print("Thread " + str(j) + ' started')
     while None in my_data:
         time.sleep(1)
 
-    pprint(my_data)
+#    pprint(my_data)
     print('Run completed')
