@@ -6,6 +6,9 @@ from pprint import pprint
 data = [None,None,None,None,None,None,None,None,None,None]
 
 def myfunc(i):
+    if i==3:
+        data[i] = ['skip', 0]
+        exit("1")
     if i==5:
         s=25
     else:

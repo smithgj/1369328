@@ -25,7 +25,7 @@ out_file=output.csv
 # page_timeout - how long to wait (in seconds) for a result before giving up
 page_timeout=20
 # text fields
-Full_Name=Greg Carman, Martin Owings, Dan Majewski
+Full_Name=Greg Carman,Steve Monthony,Greg Smith
 Email=
 Street=
 City=

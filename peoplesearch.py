@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 import arrow
 import time
 import logging
@@ -46,7 +47,7 @@ def get_input_data (input_file):
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
     out_file = out_file[0].strip()
     parts = out_file.split('.')
-    date_string = arrow.now().format('MM_DD_YYYY')
+    date_string = arrow.now().format('MM_DD_YYYY_hh_mm')
     out_file = parts[0] + date_string + '.' + parts[1]
     logging.info('Output file = ' + out_file)
     inputs.append(out_file)
@@ -347,7 +348,22 @@ def my_search(my_scenario, tasknum):
     # wait for  <div class="alert alert-info col-md-8"><h4>Search Results for...</h4>
     start_time = time.time()
     driver.wait = WebDriverWait(driver, 20)
-    page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
+    try:
+        page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
+    except TimeoutException:
+        # if we get a timeout then there are 2 cases:
+        # 1 - there were no results found
+        # 2- something went wrong
+        try:
+            soup = BeautifulSoup(driver.page_source, "html5lib")
+            no_results = soup.findAll("div", class_="panel panel-primary")
+            my_data[tasknum] = ["No results found.", tasknum]
+            driver.quit()
+            exit(101)
+        except NoSuchElementException:
+            my_data[tasknum] = ["Something went wrong.", tasknum]
+            driver.quit()
+            exit(101)
     end_time = time.time()
     logging.info('Task' + str(tasknum) + ': ' + ' Elapsed time for first page = ' + str(end_time - start_time))
 
@@ -382,6 +398,8 @@ def my_search(my_scenario, tasknum):
             logging.debug('Task' + str(tasknum) + ': ' + '  ' + 'more pages found')
             more_pages = True
     logging.info('Task' + str(tasknum) + ': ' + '  ' + str(len(soups)) + ' pages scraped')
+    print("Pages scraped = " + str(len(soups)))
+
 
     # get all "panel panel-primary" from all pages (from each soup in soups)
     people = []
@@ -391,7 +409,6 @@ def my_search(my_scenario, tasknum):
             people.append(cols[i])
     print('number of persons found = ' + str(len(people)))
     logging.debug('Task' + str(tasknum) + ': ' + ' Number of persons found = ' + str(len(people)))
-
     # todo loop through people[] and get data:
     for z in range(0, len(people)):
         one_person = people[z]
@@ -441,12 +458,12 @@ def my_search(my_scenario, tasknum):
             output.append(email_data_1)
             logging.info('Task' + str(tasknum) + ': ' + email_data_1)
 
-        my_data[tasknum] = output
-        driver.quit()
+    my_data[tasknum] = output
+    driver.quit()
 
 if __name__ == '__main__':
     FORMAT='%(asctime)s - %(levelname)s - %(message)s'
-    FILENAME =  'peoplesearch'+ arrow.now().format('MM_DD_YYYY') + '.log'
+    FILENAME =  'peoplesearch'+ arrow.now().format('MM_DD_YYYY_hh_mm') + '.log'
     log_level = 'DEBUG'
     with open('input.txt') as f:
         input_data = f.readlines()
@@ -456,14 +473,13 @@ if __name__ == '__main__':
             log_level = log_level.strip()
     numeric_level = getattr(logging, log_level)
     logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
-#   logging.disable(logging.DEBUG)
-#    driver = webdriver.Chrome("C:/Users/Greg/PycharmProjects/1369328/chromedriver_win32/chromedriver.exe")
-# load webdriver_loc, out_file, page_timeout into global variables
+
     inputs = get_input_data('input.txt')
     logging.debug('inputs = ')
     logging.debug(inputs)
     WEBDRIVER_PATH = inputs[0]
     URL = 'http://www.findpeoplesearch.com/'
+    output_file = inputs[1]
     page_timeout = inputs[2]
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
@@ -496,8 +512,12 @@ if __name__ == '__main__':
         t.start()
         logging.info("Thread " + str(j) + ' started')
         print("Thread " + str(j) + ' started')
-    while None in my_data:
-        time.sleep(1)
 
-#    pprint(my_data)
+    t.join()
+
+    f_out = open(output_file,"a+")
+    for j in range(0,len(my_data)):
+        for k in range(0,len(my_data[j])):
+            f_out.write(my_data[j][k] + '\n')
+    f_out.close()
     print('Run completed')
