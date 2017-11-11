@@ -1,8 +1,9 @@
 import os
+import threading
 from threading import Thread
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
@@ -14,6 +15,7 @@ import logging
 import us_state_abbreviations
 import itertools
 import sys
+import uuid
 from pprint import pprint
 from pprint import pformat
 from bs4 import BeautifulSoup
@@ -21,17 +23,17 @@ from bs4 import BeautifulSoup
 
 # get the data from the input file
 # add current date to name of output file
-def get_input_data (input_file):
-    inputs= []
+def get_input_data(input_file):
+    inputs = []
     with open(input_file) as f:
         input_data = f.readlines()
         # remove whitespace characters like `\n` at the end of each line
         input_data = [x.strip() for x in input_data]
-    input_no_blank_lines =[]
+    input_no_blank_lines = []
     for x in input_data:
         if x != '':
             input_no_blank_lines.append(x)
-    clean_input_data =[]
+    clean_input_data = []
     for x in input_no_blank_lines:
         if x[0:1] != '#':
             clean_input_data.append(x)
@@ -112,7 +114,8 @@ def get_input_data (input_file):
     inputs.append(level)
 
     logging.debug(inputs)
-    return(inputs)
+    return inputs
+
 
 def validate_data(inputs):
     # data validation on email, zip, phone number, ssn, age, state, dob
@@ -140,7 +143,7 @@ def validate_data(inputs):
     else:
         remove_me = []
         for i in range(0, len(inputs[7])):
-            if (len(inputs[7][i]) != 5):
+            if len(inputs[7][i]) != 5:
                 remove_me.append(inputs[7][i])
         for k in range(0, len(remove_me)):
             logging.info('Invalid zip code: ' + remove_me[k])
@@ -160,7 +163,7 @@ def validate_data(inputs):
     else:
         remove_me = []
         for i in range(0, len(inputs[9])):
-            if (len(inputs[9][i]) != 12):
+            if len(inputs[9][i]) != 12:
                 remove_me.append(inputs[9][i])
         for k in range(0, len(remove_me)):
             logging.info('Invalid phone: ' + remove_me[k])
@@ -187,7 +190,7 @@ def validate_data(inputs):
     else:
         remove_me = []
         for i in range(0, len(inputs[10])):
-            if (len(inputs[10][i]) != 11):
+            if len(inputs[10][i]) != 11:
                 remove_me.append(inputs[10][i])
         for k in range(0, len(remove_me)):
             logging.info('Invalid SSN: ' + remove_me[k])
@@ -224,7 +227,7 @@ def validate_data(inputs):
         remove_me = []
         inputs[12] = [element.upper() for element in inputs[12]]
         for i in range(0, len(inputs[12])):
-            if (inputs[12][i] not in us_state_abbreviations.states):
+            if inputs[12][i] not in us_state_abbreviations.states:
                 logging.info('Invalid state: ' + inputs[12][i])
                 remove_me.append(inputs[12][i])
         for k in range(0, len(remove_me)):
@@ -236,7 +239,7 @@ def validate_data(inputs):
     else:
         remove_me = []
         for i in range(0, len(inputs[13])):
-            if ((inputs[13][i]).count('/') != 2):
+            if (inputs[13][i]).count('/') != 2:
                 remove_me.append(inputs[13][i])
         for k in range(0, len(remove_me)):
             logging.info('Invalid date: ' + remove_me[k])
@@ -248,31 +251,35 @@ def validate_data(inputs):
             month = the_date[0]
             day = the_date[1]
             year = the_date[2]
-            if (int(month) < 1 or int(month) > 12):
+            if int(month) < 1 or int(month) > 12:
                 dob_bool = False
-            if (int(day) < 1 or int(day) > 31):
+            if int(day) < 1 or int(day) > 31:
                 dob_bool = False
-            if (int(year) < 1900):
+            if int(year) < 1900:
                 dob_bool = False
             if dob_bool == False:
                 remove_me.append(inputs[13][i])
                 logging.info('Invalid dob: ' + inputs[13][i])
         for k in range(0, len(remove_me)):
             inputs[13].remove(remove_me[k])
-    return(inputs)
+    return inputs
+
 
 def get_input_scenarios(inputs):
     logging.debug(inputs)
-    for i in range(3,14):
+    for i in range(3, 14):
         logging.debug('input ' + str(i))
         logging.debug(inputs[i])
     strs_of_scenarios = [','.join(str(y) for y in x) for x in itertools.product(inputs[3],
-        inputs[4], inputs[5], inputs[6], inputs[7], inputs[8], inputs[9], inputs[10],
-        inputs[11], inputs[12],inputs[13])]
+                                                                                inputs[4], inputs[5], inputs[6],
+                                                                                inputs[7], inputs[8], inputs[9],
+                                                                                inputs[10],
+                                                                                inputs[11], inputs[12], inputs[13])]
     for j in range(len(strs_of_scenarios)):
         scenarios.append(strs_of_scenarios[j].split(','))
     logging.debug(pformat(scenarios))
-    return(scenarios)
+    return scenarios
+
 
 def my_search(my_scenario, tasknum):
     logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
@@ -284,38 +291,37 @@ def my_search(my_scenario, tasknum):
     expand_form_button.click()
     # <input type="text" name="full_name" id="full_name"
     driver.wait = WebDriverWait(driver, 10)
-    full_name_tbox = driver.wait.until(EC.presence_of_element_located((By.NAME, "full_name")))
+    full_name_tbox = driver.wait.until(ec.presence_of_element_located((By.NAME, "full_name")))
 
-
-    if (my_scenario[0] != ''):
+    if my_scenario[0] != '':
         name = driver.find_element_by_id("full_name")
         name.send_keys(my_scenario[0])
 
-    if (my_scenario[1] != ''):
+    if my_scenario[1] != '':
         email = driver.find_element_by_name("email")
         email.send_keys(my_scenario[1])
 
-    if (my_scenario[2] != ''):
+    if my_scenario[2] != '':
         address = driver.find_element_by_name("address")
         address.send_keys(my_scenario[2])
 
-    if (my_scenario[3] != ''):
+    if my_scenario[3] != '':
         city = driver.find_element_by_name("city")
         city.send_keys(my_scenario[3])
 
-    if (my_scenario[4] != ''):
+    if my_scenario[4] != '':
         zip = driver.find_element_by_name("zip")
         zip.send_keys(my_scenario[4])
 
-    if (my_scenario[5] != ''):
+    if my_scenario[5] != '':
         akas = driver.find_element_by_id("akas")
         akas.send_keys(my_scenario[5])
 
-    if (my_scenario[6] != ''):
+    if my_scenario[6] != '':
         phone = driver.find_element_by_id("phone")
         phone.send_keys(my_scenario[6])
 
-    if (my_scenario[7] != ''):
+    if my_scenario[7] != '':
         ssn = my_scenario[7].split('-')
         ssn1 = driver.find_element_by_name("ssn1")
         ssn1.send_keys(ssn[0])
@@ -324,15 +330,15 @@ def my_search(my_scenario, tasknum):
         ssn3 = driver.find_element_by_name("ssn3")
         ssn3.send_keys(ssn[2])
 
-    if (my_scenario[8] != ''):
+    if my_scenario[8] != '':
         age = driver.find_element_by_id("age")
         age.send_keys(my_scenario[8])
 
-    if (my_scenario[9] != ''):
+    if my_scenario[9] != '':
         select = Select(driver.find_element_by_name("state"))
         select.select_by_value(my_scenario[9])
 
-    if (my_scenario[10] != ''):
+    if my_scenario[10] != '':
         dob = my_scenario[10].split('/')
         logging.debug(dob[0], dob[1], dob[2])
         select = Select(driver.find_element_by_name("month"))
@@ -349,7 +355,7 @@ def my_search(my_scenario, tasknum):
     start_time = time.time()
     driver.wait = WebDriverWait(driver, 20)
     try:
-        page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
+        page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
     except TimeoutException:
         # if we get a timeout then there are 2 cases:
         # 1 - there were no results found
@@ -357,21 +363,20 @@ def my_search(my_scenario, tasknum):
         try:
             soup = BeautifulSoup(driver.page_source, "html5lib")
             no_results = soup.findAll("div", class_="panel panel-primary")
-            my_data[tasknum] = ["No results found.", tasknum]
+            my_data[tasknum] = ["No results found.", str(tasknum)]
             driver.quit()
             exit(101)
         except NoSuchElementException:
-            my_data[tasknum] = ["Something went wrong.", tasknum]
+            my_data[tasknum] = ["Something went wrong.", str(tasknum)]
             driver.quit()
             exit(101)
     end_time = time.time()
     logging.info('Task' + str(tasknum) + ': ' + ' Elapsed time for first page = ' + str(end_time - start_time))
 
     soup = BeautifulSoup(driver.page_source, "html5lib")
-    soups = []
-    soups.append(soup)
+    soups = [soup]
     more_pages = True
-    while (more_pages):
+    while more_pages:
         try:
             next_page = driver.find_element_by_css_selector(
                 '#search-results > div:nth-child(6) > div > nav > ul > li.next-page > a')
@@ -382,7 +387,7 @@ def my_search(my_scenario, tasknum):
         start_time = time.time()
         next_page.send_keys(Keys.ENTER)
         driver.wait = WebDriverWait(driver, 30)
-        page_loaded = driver.wait.until(EC.presence_of_element_located((By.ID, "new-search2")))
+        page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
         end_time = time.time()
         logging.info('Task' + str(tasknum) + ': ' + '  ' + 'Elapsed time = ' + str(end_time - start_time))
         soup = BeautifulSoup(driver.page_source, "html5lib")
@@ -400,7 +405,6 @@ def my_search(my_scenario, tasknum):
     logging.info('Task' + str(tasknum) + ': ' + '  ' + str(len(soups)) + ' pages scraped')
     print("Pages scraped = " + str(len(soups)))
 
-
     # get all "panel panel-primary" from all pages (from each soup in soups)
     people = []
     for soup in soups:
@@ -410,6 +414,7 @@ def my_search(my_scenario, tasknum):
     print('number of persons found = ' + str(len(people)))
     logging.debug('Task' + str(tasknum) + ': ' + ' Number of persons found = ' + str(len(people)))
     # todo loop through people[] and get data:
+    output = []
     for z in range(0, len(people)):
         one_person = people[z]
         tags = one_person.findAll('li')
@@ -433,7 +438,7 @@ def my_search(my_scenario, tasknum):
         logging.info('Task' + str(tasknum) + ': ' +
                      ' Addresses=' + str(num_of_addresses) + '  Phones=' + str(num_of_phones) +
                      '  Emails=' + str(num_of_emails))
-        output =[]
+
         for i in range(0, num_of_addresses):
             addy_data = str(tags[i])
             begin = addy_data.find('data-person="') + 13
@@ -461,9 +466,10 @@ def my_search(my_scenario, tasknum):
     my_data[tasknum] = output
     driver.quit()
 
+
 if __name__ == '__main__':
-    FORMAT='%(asctime)s - %(levelname)s - %(message)s'
-    FILENAME =  'peoplesearch'+ arrow.now().format('MM_DD_YYYY_hh_mm') + '.log'
+    FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+    FILENAME = 'peoplesearch' + arrow.now().format('MM_DD_YYYY_hh_mm') + '.log'
     log_level = 'DEBUG'
     with open('input.txt') as f:
         input_data = f.readlines()
@@ -484,7 +490,7 @@ if __name__ == '__main__':
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
     logging.debug('clean_inputs = ' + str(clean_inputs))
-# read data from input file and get all combos for searching
+    # read data from input file and get all combos for searching
     scenarios = []
     scenarios = get_input_scenarios(clean_inputs)
     num_scenarios = len(scenarios)
@@ -494,9 +500,8 @@ if __name__ == '__main__':
         logging.info('There are too many scenarios to run, please adjust input.txt file '
                      'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         print('There are too many scenarios to run, please adjust input.txt file '
-                     'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
+              'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
         sys.exit()
-
 
     my_data = []
     for i in range(num_scenarios):
@@ -507,17 +512,33 @@ if __name__ == '__main__':
 
     logging.info('Threading started')
     print('Threading started')
+    scenario_uuid = []
     for j in range(num_scenarios):
-        t = Thread(target=my_search, args=(scenarios[j],j,))
+        scenario_uuid.append(uuid.uuid4())
+        t = Thread(target=my_search, args=(scenarios[j], j,))
         t.start()
         logging.info("Thread " + str(j) + ' started')
         print("Thread " + str(j) + ' started')
 
-    t.join()
+    # t.join() doesn't seem to work so I will roll my own
+    while threading.active_count() > 1:
+        print('Waiting for ' + str(threading.active_count() - 1) + ' threads to finish')
+        time.sleep(5)
 
-    f_out = open(output_file,"a+")
-    for j in range(0,len(my_data)):
-        for k in range(0,len(my_data[j])):
-            f_out.write(my_data[j][k] + '\n')
+    f_out = open(output_file, "a+")
+    for z in range(0, len(scenarios)):
+        scen_line = "'" + str(scenarios[z]) + "'"
+        scen_line = str(scenario_uuid[z]) + ',' + scen_line
+        f_out.write(scen_line + '\n')
+    for j in range(0, len(my_data)):
+        for k in range(0, len(my_data[j])):
+            out_line = my_data[j][k]
+            out_line = out_line.replace('+', ' ')
+            out_line = out_line.replace('&amp;', ':')
+            out_line = out_line.replace('%2C', ',')
+            out_line = "'" + out_line + "'"
+            out_line = str(scenario_uuid[j]) + ',' + out_line
+            f_out.write(out_line + '\n')
+            print(out_line)
     f_out.close()
     print('Run completed')

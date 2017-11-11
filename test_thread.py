@@ -24,7 +24,14 @@ for i in range(10):
     t = Thread(target=myfunc, args=(i,), name=my_name, daemon=True)
     t.start()
 
-while None in data :
-    time.sleep(1)
-
+print("out of loop")
+print(threading.active_count())
+t.join()
+print("after join")
+print(threading.active_count())
+pprint(data)
+while threading.active_count() > 1 :
+    print(threading.active_count())
+    time.sleep(3)
+print(threading.active_count())
 pprint(data)

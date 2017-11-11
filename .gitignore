@@ -3,3 +3,4 @@ venv/
 .idea/
 phantomjs-2.1.1-windows/
 .ipynb_checkpoints/
+*.log
