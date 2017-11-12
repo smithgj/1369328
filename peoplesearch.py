@@ -291,7 +291,7 @@ def my_search(my_scenario, tasknum):
     expand_form_button = driver.find_elements_by_id("more-btn")[0]
     expand_form_button.click()
     # <input type="text" name="full_name" id="full_name"
-    driver.wait = WebDriverWait(driver, 10)
+    driver.wait = WebDriverWait(driver, page_timeout)
     full_name_tbox = driver.wait.until(ec.presence_of_element_located((By.NAME, "full_name")))
 
     if my_scenario[0] != '':
@@ -354,7 +354,7 @@ def my_search(my_scenario, tasknum):
     search_button.send_keys(Keys.ENTER)
     # wait for  <div class="alert alert-info col-md-8"><h4>Search Results for...</h4>
     start_time = time.time()
-    driver.wait = WebDriverWait(driver, 20)
+    driver.wait = WebDriverWait(driver, page_timeout)
     try:
         page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
     except TimeoutException:
@@ -387,7 +387,7 @@ def my_search(my_scenario, tasknum):
             break
         start_time = time.time()
         next_page.send_keys(Keys.ENTER)
-        driver.wait = WebDriverWait(driver, 30)
+        driver.wait = WebDriverWait(driver, page_timeout)
         page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
         end_time = time.time()
         logging.info('Task' + str(tasknum) + ': ' + '  ' + 'Elapsed time = ' + str(end_time - start_time))
@@ -487,7 +487,7 @@ if __name__ == '__main__':
     WEBDRIVER_PATH = inputs[0]
     URL = 'http://www.findpeoplesearch.com/'
     output_file = inputs[1]
-    page_timeout = inputs[2]
+    page_timeout = int(inputs[2])
     max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
     logging.debug('clean_inputs = ' + str(clean_inputs))

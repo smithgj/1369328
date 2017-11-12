@@ -23,7 +23,7 @@ webdriver_loc=chromedriver.exe
 # output.csv -->  output08302017.csv
 out_file=output.csv
 # page_timeout - how long to wait (in seconds) for a result before giving up
-page_timeout=20
+page_timeout=30
 # text fields
 Full_Name=Greg Carman,Marty Owings,Greg Smith
 Email=
