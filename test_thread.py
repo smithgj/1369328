@@ -13,6 +13,8 @@ def myfunc(i):
         s=25
     else:
         s=i
+    if i==6:
+        raise ValueError('A very specific bad thing happened')
     print ("sleeping " + str(s) + " sec from thread %d" % i)
     time.sleep(s)
     print ("finished sleeping from thread %d" % i)
@@ -23,6 +25,7 @@ for i in range(10):
     my_name = 'thread_' + str(i)
     t = Thread(target=myfunc, args=(i,), name=my_name, daemon=True)
     t.start()
+
 
 print("out of loop")
 print(threading.active_count())

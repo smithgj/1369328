@@ -531,12 +531,14 @@ if __name__ == '__main__':
         for z in range(0, len(scenarios)):
             writer.writerow((str(scenario_uuid[z]), str(scenarios[z])))
         for j in range(0, len(my_data)):
-            for k in range(0, len(my_data[j])):
-                out_line = my_data[j][k]
-                out_line = out_line.replace('+', ' ')
-                out_line = out_line.replace('&amp;', ':')
-                out_line = out_line.replace('%2C', ',')
-                writer.writerow((scenario_uuid[j], out_line))
-                print(out_line)
-
+            if my_data[j] != None:
+                for k in range(0, len(my_data[j])):
+                    out_line = my_data[j][k]
+                    out_line = out_line.replace('+', ' ')
+                    out_line = out_line.replace('&amp;', ':')
+                    out_line = out_line.replace('%2C', ',')
+                    writer.writerow((scenario_uuid[j], out_line))
+                    print(out_line)
+            else:
+                writer.writerow((scenario_uuid[j], 'ERROR - no results returned'))
     print('Run completed')
