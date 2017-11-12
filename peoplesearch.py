@@ -50,7 +50,7 @@ def get_input_data(input_file):
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
     out_file = out_file[0].strip()
     parts = out_file.split('.')
-    date_string = arrow.now().format('MM_DD_YYYY_HH_MM')
+    date_string = arrow.now().format('MM_DD_YYYY_HH_mm')
     out_file = parts[0] + date_string + '.' + parts[1]
     logging.info('Output file = ' + out_file)
     inputs.append(out_file)
@@ -470,7 +470,7 @@ def my_search(my_scenario, tasknum):
 
 if __name__ == '__main__':
     FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
-    FILENAME = 'peoplesearch' + arrow.now().format('MM_DD_YYYY_HH_MM') + '.log'
+    FILENAME = 'peoplesearch' + arrow.now().format('MM_DD_YYYY_HH_mm') + '.log'
     log_level = 'DEBUG'
     with open('input.txt') as f:
         input_data = f.readlines()
