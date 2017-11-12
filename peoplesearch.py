@@ -16,6 +16,7 @@ import us_state_abbreviations
 import itertools
 import sys
 import uuid
+import csv
 from pprint import pprint
 from pprint import pformat
 from bs4 import BeautifulSoup
@@ -49,7 +50,7 @@ def get_input_data(input_file):
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
     out_file = out_file[0].strip()
     parts = out_file.split('.')
-    date_string = arrow.now().format('MM_DD_YYYY_hh_mm')
+    date_string = arrow.now().format('MM_DD_YYYY_HH_MM')
     out_file = parts[0] + date_string + '.' + parts[1]
     logging.info('Output file = ' + out_file)
     inputs.append(out_file)
@@ -469,7 +470,7 @@ def my_search(my_scenario, tasknum):
 
 if __name__ == '__main__':
     FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
-    FILENAME = 'peoplesearch' + arrow.now().format('MM_DD_YYYY_hh_mm') + '.log'
+    FILENAME = 'peoplesearch' + arrow.now().format('MM_DD_YYYY_HH_MM') + '.log'
     log_level = 'DEBUG'
     with open('input.txt') as f:
         input_data = f.readlines()
@@ -525,20 +526,17 @@ if __name__ == '__main__':
         print('Waiting for ' + str(threading.active_count() - 1) + ' threads to finish')
         time.sleep(5)
 
-    f_out = open(output_file, "a+")
-    for z in range(0, len(scenarios)):
-        scen_line = "'" + str(scenarios[z]) + "'"
-        scen_line = str(scenario_uuid[z]) + ',' + scen_line
-        f_out.write(scen_line + '\n')
-    for j in range(0, len(my_data)):
-        for k in range(0, len(my_data[j])):
-            out_line = my_data[j][k]
-            out_line = out_line.replace('+', ' ')
-            out_line = out_line.replace('&amp;', ':')
-            out_line = out_line.replace('%2C', ',')
-            out_line = "'" + out_line + "'"
-            out_line = str(scenario_uuid[j]) + ',' + out_line
-            f_out.write(out_line + '\n')
-            print(out_line)
-    f_out.close()
+    with open(output_file, "w") as f_out:
+        writer = csv.writer(f_out, lineterminator = '\n')
+        for z in range(0, len(scenarios)):
+            writer.writerow((str(scenario_uuid[z]), str(scenarios[z])))
+        for j in range(0, len(my_data)):
+            for k in range(0, len(my_data[j])):
+                out_line = my_data[j][k]
+                out_line = out_line.replace('+', ' ')
+                out_line = out_line.replace('&amp;', ':')
+                out_line = out_line.replace('%2C', ',')
+                writer.writerow((scenario_uuid[j], out_line))
+                print(out_line)
+
     print('Run completed')
