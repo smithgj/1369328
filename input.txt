@@ -13,7 +13,8 @@
 #          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 #########################################################################
 # only change these if directed to
-webdriver_loc=chromedriver.exe
+#
+headless=yes
 #
 #   change the values below as required
 #

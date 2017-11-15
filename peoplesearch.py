@@ -284,7 +284,13 @@ def get_input_scenarios(inputs):
 
 def my_search(my_scenario, tasknum):
     logging.basicConfig(format=FORMAT, filename=FILENAME, level=numeric_level)
-    driver = webdriver.Chrome(WEBDRIVER_PATH)
+    if headless == "yes":
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        driver = webdriver.Chrome(chrome_options=options, executable_path="chromedriver.exe")
+    else:
+        driver = webdriver.Chrome("chromedriver.exe")
+
     driver.get(URL)
     # click Expand Form button
     # the [0] is there because find_elements_by_id returns a list
@@ -502,7 +508,7 @@ if __name__ == '__main__':
     inputs = get_input_data('input.txt')
     logging.debug('inputs = ')
     logging.debug(inputs)
-    WEBDRIVER_PATH = inputs[0]
+    headless = inputs[0]
     URL = 'http://www.findpeoplesearch.com/'
     output_file = inputs[1]
     page_timeout = int(inputs[2])
@@ -559,4 +565,5 @@ if __name__ == '__main__':
                     print(out_line)
             else:
                 writer.writerow((scenario_uuid[j], 'ERROR - no results returned '))
-    print('Run completed')
+    print('***** Run completed *****')
+    input('Hit a key to close this window')
