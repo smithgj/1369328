@@ -179,7 +179,7 @@ def validate_data(inputs):
                 if j in (3, 7):
                     if inputs[9][i][j] != '-':
                         phone_bool = False
-            if phone_bool == False:
+            if not phone_bool:
                 remove_me.append(inputs[9][i])
                 logging.info('Invalid phone: ' + inputs[9][i])
         for k in range(0, len(remove_me)):
@@ -206,7 +206,7 @@ def validate_data(inputs):
                 if j in (3, 7):
                     if inputs[10][i][j] != '-':
                         ssn = False
-            if ssn_bool == False:
+            if not ssn_bool:
                 remove_me.append(inputs[10][i])
                 logging.info('Invalid SSN: ' + inputs[10][i])
         for k in range(0, len(remove_me)):
@@ -258,7 +258,7 @@ def validate_data(inputs):
                 dob_bool = False
             if int(year) < 1900:
                 dob_bool = False
-            if dob_bool == False:
+            if not dob_bool:
                 remove_me.append(inputs[13][i])
                 logging.info('Invalid dob: ' + inputs[13][i])
         for k in range(0, len(remove_me)):
@@ -291,7 +291,13 @@ def my_search(my_scenario, tasknum):
     expand_form_button = driver.find_elements_by_id("more-btn")[0]
     expand_form_button.click()
     # <input type="text" name="full_name" id="full_name"
-    driver.wait = WebDriverWait(driver, page_timeout)
+    try:
+        driver.wait = WebDriverWait(driver, page_timeout)
+    except TimeoutException:
+        my_data[tasknum] = ['Error - webpage did not load within '
+                            + str(page_timeout) + ' seconds', '']
+        driver.quit()
+        sys.exit()
     full_name_tbox = driver.wait.until(ec.presence_of_element_located((By.NAME, "full_name")))
 
     if my_scenario[0] != '':
@@ -311,8 +317,8 @@ def my_search(my_scenario, tasknum):
         city.send_keys(my_scenario[3])
 
     if my_scenario[4] != '':
-        zip = driver.find_element_by_name("zip")
-        zip.send_keys(my_scenario[4])
+        zip_code = driver.find_element_by_name("zip")
+        zip_code.send_keys(my_scenario[4])
 
     if my_scenario[5] != '':
         akas = driver.find_element_by_id("akas")
@@ -354,7 +360,13 @@ def my_search(my_scenario, tasknum):
     search_button.send_keys(Keys.ENTER)
     # wait for  <div class="alert alert-info col-md-8"><h4>Search Results for...</h4>
     start_time = time.time()
-    driver.wait = WebDriverWait(driver, page_timeout)
+    try:
+        driver.wait = WebDriverWait(driver, page_timeout)
+    except TimeoutException:
+        my_data[tasknum] = ['Error - webpage did not load within '
+                            + str(page_timeout) + ' seconds', '']
+        driver.quit()
+        sys.exit()
     try:
         page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
     except TimeoutException:
@@ -387,7 +399,13 @@ def my_search(my_scenario, tasknum):
             break
         start_time = time.time()
         next_page.send_keys(Keys.ENTER)
-        driver.wait = WebDriverWait(driver, page_timeout)
+        try:
+            driver.wait = WebDriverWait(driver, page_timeout)
+        except TimeoutException:
+            my_data[tasknum] = ['Error - webpage did not load within '
+                                + str(page_timeout) + ' seconds', '']
+            driver.quit()
+            sys.exit()
         page_loaded = driver.wait.until(ec.presence_of_element_located((By.ID, "new-search2")))
         end_time = time.time()
         logging.info('Task' + str(tasknum) + ': ' + '  ' + 'Elapsed time = ' + str(end_time - start_time))
@@ -527,11 +545,11 @@ if __name__ == '__main__':
         time.sleep(5)
 
     with open(output_file, "w") as f_out:
-        writer = csv.writer(f_out, lineterminator = '\n')
+        writer = csv.writer(f_out, lineterminator='\n')
         for z in range(0, len(scenarios)):
             writer.writerow((str(scenario_uuid[z]), str(scenarios[z])))
         for j in range(0, len(my_data)):
-            if my_data[j] != None:
+            if my_data[j] is not None:
                 for k in range(0, len(my_data[j])):
                     out_line = my_data[j][k]
                     out_line = out_line.replace('+', ' ')
@@ -540,5 +558,5 @@ if __name__ == '__main__':
                     writer.writerow((scenario_uuid[j], out_line))
                     print(out_line)
             else:
-                writer.writerow((scenario_uuid[j], 'ERROR - no results returned'))
+                writer.writerow((scenario_uuid[j], 'ERROR - no results returned '))
     print('Run completed')

@@ -13,8 +13,8 @@ def myfunc(i):
         s=25
     else:
         s=i
-    if i==6:
-        raise ValueError('A very specific bad thing happened')
+#    if i==6:
+#        raise ValueError('A very specific bad thing happened')
     print ("sleeping " + str(s) + " sec from thread %d" % i)
     time.sleep(s)
     print ("finished sleeping from thread %d" % i)
