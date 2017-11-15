@@ -1,25 +1,32 @@
-import os
+#
+# Copyright (C) Greg Smith smithgj66@hotmail.com - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Greg Smith smithgj66@hotmail.com, November 2017
+#
+import csv
+import itertools
+import logging
+import sys
 import threading
+import time
+import uuid
+from pprint import pformat
 from threading import Thread
+
+import arrow
+from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
-import arrow
-import time
-import logging
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+
 import us_state_abbreviations
-import itertools
-import sys
-import uuid
-import csv
-from pprint import pprint
-from pprint import pformat
-from bs4 import BeautifulSoup
 
 
 # get the data from the input file
@@ -287,6 +294,7 @@ def my_search(my_scenario, tasknum):
     if headless == "yes":
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
+        options.add_argument('log-level=3')
         driver = webdriver.Chrome(chrome_options=options, executable_path="chromedriver.exe")
     else:
         driver = webdriver.Chrome("chromedriver.exe")
@@ -300,7 +308,7 @@ def my_search(my_scenario, tasknum):
     try:
         driver.wait = WebDriverWait(driver, page_timeout)
     except TimeoutException:
-        my_data[tasknum] = ['Error - webpage did not load within '
+        my_data[tasknum] = ['Error - web page did not load within '
                             + str(page_timeout) + ' seconds', '']
         driver.quit()
         sys.exit()
@@ -369,7 +377,7 @@ def my_search(my_scenario, tasknum):
     try:
         driver.wait = WebDriverWait(driver, page_timeout)
     except TimeoutException:
-        my_data[tasknum] = ['Error - webpage did not load within '
+        my_data[tasknum] = ['Error - web page did not load within '
                             + str(page_timeout) + ' seconds', '']
         driver.quit()
         sys.exit()
@@ -384,11 +392,11 @@ def my_search(my_scenario, tasknum):
             no_results = soup.findAll("div", class_="panel panel-primary")
             my_data[tasknum] = ["No results found.", str(tasknum)]
             driver.quit()
-            exit(101)
+            sys.exit(101)
         except NoSuchElementException:
             my_data[tasknum] = ["Something went wrong.", str(tasknum)]
             driver.quit()
-            exit(101)
+            sys.exit(101)
     end_time = time.time()
     logging.info('Task' + str(tasknum) + ': ' + ' Elapsed time for first page = ' + str(end_time - start_time))
 
@@ -408,7 +416,7 @@ def my_search(my_scenario, tasknum):
         try:
             driver.wait = WebDriverWait(driver, page_timeout)
         except TimeoutException:
-            my_data[tasknum] = ['Error - webpage did not load within '
+            my_data[tasknum] = ['Error - web page did not load within '
                                 + str(page_timeout) + ' seconds', '']
             driver.quit()
             sys.exit()
