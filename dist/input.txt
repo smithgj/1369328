@@ -12,9 +12,9 @@
 #          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
 #          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 #########################################################################
-# only change these if directed to
+# anything with a '#' as the first character in a line is a comment
 #
-headless=yes
+headless=no
 #
 #   change the values below as required
 #
@@ -38,8 +38,6 @@ Social_Security_Number=
 Approximate_Age=
 State=MN
 Date_of_Birth=
-# this is the maximum nuber of browsers to use
-max_browsers=50
 # logging level for troubleshooting
 level=DEBUG
 

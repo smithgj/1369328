@@ -9,11 +9,10 @@ import csv
 import itertools
 import logging
 import sys
-import threading
 import time
 import uuid
 from pprint import pformat
-from threading import Thread
+
 
 import arrow
 from bs4 import BeautifulSoup
@@ -51,7 +50,7 @@ def get_input_data(input_file):
 
     webdriver = (clean_input_data[0][clean_input_data[0].find('=') + 1:])
     webdriver = webdriver.strip()
-    logging.info('webdriver = ' + webdriver)
+    logging.info('headless = ' + webdriver)
     inputs.append(webdriver)
 
     out_file = (clean_input_data[1][clean_input_data[1].find('=') + 1:]).split(',')
@@ -111,12 +110,7 @@ def get_input_data(input_file):
     dob = [x.strip() for x in dob]
     inputs.append(dob)
 
-    max_browsers = (clean_input_data[14][clean_input_data[14].find('=') + 1:])
-    max_browsers = max_browsers.strip()
-    logging.info('max browsers = ' + max_browsers)
-    inputs.append(max_browsers)
-
-    level = (clean_input_data[15][clean_input_data[15].find('=') + 1:])
+    level = (clean_input_data[14][clean_input_data[14].find('=') + 1:])
     level = level.strip()
     logging.info('log level = ' + level)
     inputs.append(level)
@@ -391,12 +385,9 @@ def my_search(my_scenario, tasknum):
             soup = BeautifulSoup(driver.page_source, "html5lib")
             no_results = soup.findAll("div", class_="panel panel-primary")
             my_data[tasknum] = ["No results found.", str(tasknum)]
-            driver.quit()
-            sys.exit(101)
         except NoSuchElementException:
             my_data[tasknum] = ["Something went wrong.", str(tasknum)]
-            driver.quit()
-            sys.exit(101)
+
     end_time = time.time()
     logging.info('Task' + str(tasknum) + ': ' + ' Elapsed time for first page = ' + str(end_time - start_time))
 
@@ -520,7 +511,6 @@ if __name__ == '__main__':
     URL = 'http://www.findpeoplesearch.com/'
     output_file = inputs[1]
     page_timeout = int(inputs[2])
-    max_browsers = int(inputs[14])
     clean_inputs = validate_data(inputs)
     logging.debug('clean_inputs = ' + str(clean_inputs))
     # read data from input file and get all combos for searching
@@ -529,12 +519,6 @@ if __name__ == '__main__':
     num_scenarios = len(scenarios)
     logging.info('There are ' + str(len(scenarios)) + ' scenarios to be run')
     print('There are ' + str(len(scenarios)) + ' scenarios to be run')
-    if len(scenarios) > max_browsers:
-        logging.info('There are too many scenarios to run, please adjust input.txt file '
-                     'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
-        print('There are too many scenarios to run, please adjust input.txt file '
-              'so that the maximum number of scenarios is less than or equal to ' + str(max_browsers))
-        sys.exit()
 
     my_data = []
     for i in range(num_scenarios):
@@ -543,20 +527,10 @@ if __name__ == '__main__':
         logging.debug(type(scenarios[i]))
     logging.debug('data = ' + str(my_data))
 
-    logging.info('Threading started')
-    print('Threading started')
     scenario_uuid = []
     for j in range(num_scenarios):
         scenario_uuid.append(uuid.uuid4())
-        t = Thread(target=my_search, args=(scenarios[j], j,))
-        t.start()
-        logging.info("Thread " + str(j) + ' started')
-        print("Thread " + str(j) + ' started')
-
-    # t.join() doesn't seem to work so I will roll my own
-    while threading.active_count() > 1:
-        print('Waiting for ' + str(threading.active_count() - 1) + ' threads to finish')
-        time.sleep(5)
+        my_search(scenarios[j], j)
 
     with open(output_file, "w") as f_out:
         writer = csv.writer(f_out, lineterminator='\n')
