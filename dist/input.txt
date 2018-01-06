@@ -14,7 +14,7 @@
 #########################################################################
 # anything with a '#' as the first character in a line is a comment
 #
-headless=no
+headless=yes
 #
 #   change the values below as required
 #
@@ -39,7 +39,7 @@ Approximate_Age=
 State=MN
 Date_of_Birth=
 # logging level for troubleshooting
-level=DEBUG
+level=INFO
 
 
 	

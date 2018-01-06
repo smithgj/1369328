@@ -291,7 +291,9 @@ def my_search(my_scenario, tasknum):
         options.add_argument('log-level=3')
         driver = webdriver.Chrome(chrome_options=options, executable_path="chromedriver.exe")
     else:
-        driver = webdriver.Chrome("chromedriver.exe")
+        options = webdriver.ChromeOptions()
+        options.add_argument('log-level=3')
+        driver = webdriver.Chrome(chrome_options=options, executable_path="chromedriver.exe")
 
     driver.get(URL)
     # click Expand Form button
